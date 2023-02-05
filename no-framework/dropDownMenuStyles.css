@@ -11,13 +11,24 @@ body{
     background-color: #DCFAE5;
 }
 
+main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width:max-content;
+
+    /* Ask professor how to center content setting padding or marging */
+}
+
 ul{
+
     font-size: 1.1rem;
+    text-align: left;
 
     list-style-type: none;
     /* Removes the bullets or numbers from a list*/
     
     background-color: #279C3F;
+    
 }
 
 li{
@@ -25,7 +36,7 @@ li{
     /* This line makes the different texts to show in rows 
     instead of colums (stacked on top)*/
 
-    width: 10%
+    width: 6rem;
     /* This gives the same width to all the set of items (buttons)
     in the list */
 }
@@ -49,6 +60,7 @@ that are inside a list or buttons (tag "li") */
 
 li a:hover {
 /* This applies style to the TEXT LINK when hovered*/
+
     background: lightgreen;
 }
 
@@ -65,12 +77,23 @@ li:first-child{
 }
 
 .container{
-    margin: 1.5rem;
     background-color: white;
 }
 
-.bold{
-    text-decoration: solid;
+#instructions {
+    border-left: solid #26C440;
+    border-left-width: 0.3rem;
+}
+
+#extraCredit {
+    margin-top: 1.5rem;
+    border-left: solid yellow;
+    border-left-width: 0.3rem;
+}
+
+.onlyCSS{
+    font-weight: bold;
+    font-style: italic;
 }
 
 h3{
@@ -78,9 +101,13 @@ h3{
 }
 
 p{
-    
     display: inline-block;
     margin-left: 1rem;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
     margin-bottom: 2rem;
+}
+
+#fileOptions {
+    position: absolute;
+    background: blue;
 }
