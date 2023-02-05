@@ -1,5 +1,58 @@
-/*Useful resource for colors wwww.coolors.com*/
+/*Useful resource found for colors wwww.coolors.com DCFAE5*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
-    background: #DCFAE5;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #DCFAE5;
+}
+
+ul{
+    font-size: 1.1rem;
+    list-style-type: none;
+    list-style-position: inside;
+    text-align: left;
+    background-color: #279C3F;
+}
+
+li{
+    /*This line makes the different texts to show in rows instead of colums (stacked on top)*/
+    display: inline-block;
+    width: 10%;
+}
+
+/*This notation is to select only the links (tag "a") that are inside
+a list (tag "li") */
+li a {
+    /*When selecting an option from nav bar, 
+    not only the text will be highlighted but all the box that contains it*/
+    display: block;
+
+    /*By puttint 2 values on a single line we are setting
+    top bottom and right left padding*/
+    padding: 0.3rem 0.6rem;
+}
+
+li a:hover {
+    background: lightgreen;
+}
+
+.container{
+    margin: 1.5rem;
+    background-color: white;
+}
+
+h3{
+    padding: 1rem;
+}
+
+p{
+    display: inline-block;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
 }
