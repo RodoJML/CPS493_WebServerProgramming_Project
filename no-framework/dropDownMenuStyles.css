@@ -47,6 +47,8 @@ li a {
 /* This notation is to select only the links or text (tag "a") 
 that are inside a list or buttons (tag "li") */
 
+    text-decoration: none;
+
     display: block;
     /* When selecting an option from nav bar, not only 
     the text will be highlighted but all the box that contains it*/
@@ -64,6 +66,7 @@ li a:hover, a:focus{
 /* This applies style to the TEXT LINK when hovered*/
 
     background: #26C440;
+    
 }
 
 li:last-child{
@@ -109,10 +112,8 @@ p{
     margin-bottom: 2rem;
 }
 
-
-
 .dropdownOptions{
-    display: block;
+    display: none;
     background-color: #26C440;
     
     position: absolute;
@@ -137,3 +138,8 @@ p{
 .dropdownOptions a:hover{
     background-color: lightgreen;
 }
+
+.show {
+    display:block;
+}
+

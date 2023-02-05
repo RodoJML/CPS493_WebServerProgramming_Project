@@ -5,34 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="dropDownMenuStyles.css">
+    <script src="dropDownMenuScripts.js"></script>
 
     <title>Menu Example</title>
 </head>
 
 <body>
-
     <nav class="menubar">
-        <ul>
-            <li class="menuOption">
+        <ul >
+
+            <li class="menuOption" onmouseenter="myFunction()" onmouseleave="myFunction()">
             <!-- Notice how the "a" tag, in this case the "File" button 
             is surrounded by a "div" that we called "menuOption"-->
 
-                <a onclick="myFunction()" class="dropbtn">File</a>
+                <a class="dropbtn" >File</a>
 
                 <div id="File" class="dropdownOptions">
                 <!-- Here we create another "div" to encapsulated all the
                 options that belong to the "File" button -->
-                    <a>New</a>
-                    <a>Open</a>
-                    <a>Save</a>
-                    <a>Print</a>
-                    <a>Close</a>
+                    <a href="">New</a>
+                    <a href="">Open</a>
+                    <a href="">Save</a>
+                    <a href="">Print</a>
+                    <a href="">Close</a>
                 </div>
 
-
-
             </li>
+
             <li><a>Edit</a></li>
             <li><a>View</a></li>
         </ul>
