@@ -36,6 +36,9 @@ li{
     /* This line makes the different texts to show in rows 
     instead of colums (stacked on top)*/
 
+    position: relative;
+    /* Needed when we want the dropdown content to be placed right below the button */
+
     width: 6rem;
     /* This gives the same width to all the set of items (buttons)
     in the list */
@@ -58,10 +61,10 @@ that are inside a list or buttons (tag "li") */
     top bottom and right left padding*/
 }
 
-li a:hover {
+li a:hover, a:focus{
 /* This applies style to the TEXT LINK when hovered*/
 
-    background: lightgreen;
+    background: #26C440;
 }
 
 li:last-child{
@@ -107,7 +110,28 @@ p{
     margin-bottom: 2rem;
 }
 
-#fileOptions {
+
+
+.dropdownOptions{
+    display: block;
+    background-color: #26C440;
+    
     position: absolute;
-    background: blue;
+    /* The dropdown will be position outsite the block*/
+    
+    cursor: pointer;
+    
+    width: 100%;
+    /* The dropdown will have the same witdth as the button*/
+
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.dropdownOptions a{
+    color: purple;
+}
+
+.dropdownOptions a:hover{
+    background-color: lightgreen;
 }
