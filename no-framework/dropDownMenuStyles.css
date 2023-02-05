@@ -15,7 +15,6 @@ main {
     margin: auto;
     padding: 1.5rem;
     max-width:max-content;
-
     /* Ask professor how to center content setting padding or marging */
 }
 
@@ -118,11 +117,14 @@ p{
     
     position: absolute;
     /* The dropdown will be position outsite the block*/
-    
+
     cursor: pointer;
     
     width: 100%;
     /* The dropdown will have the same witdth as the button*/
+
+    overflow:auto;
+    /* Enables scroll on small screens*/
 
     font-weight: lighter;
     font-size: 1rem;
