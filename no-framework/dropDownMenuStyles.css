@@ -13,32 +13,55 @@ body{
 
 ul{
     font-size: 1.1rem;
+
     list-style-type: none;
-    list-style-position: inside;
-    text-align: left;
+    /* Removes the bullets or numbers from a list*/
+    
     background-color: #279C3F;
 }
 
 li{
-    /*This line makes the different texts to show in rows instead of colums (stacked on top)*/
     display: inline-block;
-    width: 10%;
+    /* This line makes the different texts to show in rows 
+    instead of colums (stacked on top)*/
+
+    width: 10%
+    /* This gives the same width to all the set of items (buttons)
+    in the list */
 }
 
-/*This notation is to select only the links (tag "a") that are inside
-a list (tag "li") */
 li a {
-    /*When selecting an option from nav bar, 
-    not only the text will be highlighted but all the box that contains it*/
-    display: block;
+/* This notation is to select only the links or text (tag "a") 
+that are inside a list or buttons (tag "li") */
 
-    /*By puttint 2 values on a single line we are setting
-    top bottom and right left padding*/
+    display: block;
+    /* When selecting an option from nav bar, not only 
+    the text will be highlighted but all the box that contains it*/
+
+    /* It's important to remember that what is beign highlighted
+    when hover is the text in the link (tag "a") and not the 
+    container itself (tag "li")*/
+
     padding: 0.3rem 0.6rem;
+    /* By putting 2 values on a single line we are setting
+    top bottom and right left padding*/
 }
 
 li a:hover {
+/* This applies style to the TEXT LINK when hovered*/
     background: lightgreen;
+}
+
+li:last-child{
+/* This applies style only to the last item of the list*/
+
+    font-weight: bold;
+}
+
+li:first-child{
+/* This applies style only to the first item of the list*/   
+
+    font-weight: bold;
 }
 
 .container{
@@ -46,11 +69,16 @@ li a:hover {
     background-color: white;
 }
 
+.bold{
+    text-decoration: solid;
+}
+
 h3{
     padding: 1rem;
 }
 
 p{
+    
     display: inline-block;
     margin-left: 1rem;
     margin-right: 2rem;
