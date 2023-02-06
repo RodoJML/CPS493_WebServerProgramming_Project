@@ -71,6 +71,8 @@
             /* This applies style to the TEXT LINK when hovered*/
 
             background: #26C440;
+
+
         }
 
         li:last-child {
@@ -116,7 +118,7 @@
             margin-bottom: 2rem;
         }
 
-        .dropdownOptions {
+        .dropdownOptions{
             display: none;
             background-color: #26C440;
 
@@ -142,6 +144,10 @@
         .dropdownOptions a:hover {
             background-color: lightgreen;
         }
+
+        .menuOption:hover .dropdownOptions{display:block;}
+        .menuOption:focus-within .dropdownOptions{display:flex;}
+
     </style>
 
     <title>Menu Example</title>
@@ -169,8 +175,8 @@
                 </div>
             </li>
 
-            <li class="menuOption" onclick="stay()" onmouseenter="selEdit()" onmouseleave="selEdit()">
-                <a class="dropbtn">Edit</a>
+            <li class="menuOption" >
+                <a>Edit</a>
                 <div id="Edit" class="dropdownOptions">
                     <a href="">Undo</a>
                     <a href="">Redo</a>
@@ -181,7 +187,7 @@
                 </div>
             </li>
 
-            <li class="menuOption" onmouseenter="selView()" onmouseleave="selView()">
+            <li class="menuOption">
                 <a class="dropbtn">View</a>
                 <div id="View" class="dropdownOptions">
                     <a href="">Zoom in</a>
