@@ -96,7 +96,7 @@ li:first-child{
     border-left-width: 0.3rem;
 }
 
-.onlyCSS{
+#onlyCSS{
     font-weight: bold;
     font-style: italic;
 }

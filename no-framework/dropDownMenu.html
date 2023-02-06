@@ -14,28 +14,51 @@
 
 <body>
     <nav class="menubar">
-        <ul >
+        <ul>
 
-            <li class="menuOption" onmouseenter="myFunction()" onmouseleave="myFunction()">
+            <li class="menuOption" onmouseenter="selFile()" onmouseleave="selFile()">
             <!-- Notice how the "a" tag, in this case the "File" button 
-            is surrounded by a "div" that we called "menuOption"-->
+            is surrounded by a "li" or "div" that we called "menuOption"-->
 
-                <a class="dropbtn" >File</a>
-
+                <a class="dropbtn">File</a>
                 <div id="File" class="dropdownOptions">
                 <!-- Here we create another "div" to encapsulated all the
                 options that belong to the "File" button -->
+
                     <a href="">New</a>
                     <a href="">Open</a>
                     <a href="">Save</a>
                     <a href="">Print</a>
                     <a href="">Close</a>
                 </div>
-
             </li>
 
-            <li><a>Edit</a></li>
-            <li><a>View</a></li>
+            <li class="menuOption" onmouseenter="selEdit()" onmouseleave="selEdit()">
+                <a class="dropbtn">Edit</a>
+                <div id="Edit" class="dropdownOptions">
+                    <a href="">Undo</a>
+                    <a href="">Redo</a>
+                    <a href="">Copy</a>
+                    <a href="">Paste</a>
+                    <a href="">Delete</a>
+                    <a href="">Select All</a>
+                </div>
+            </li>
+
+            <li class="menuOption" onmouseenter="selView()" onmouseleave="selView()">
+                <a class="dropbtn">View</a>
+                <div id="View" class="dropdownOptions">
+                    <a href="">Zoom in</a>
+                    <a href="">Zoom out</a>
+                    <a href="">Actual Size</a>
+                    <a href="">Fit Page</a>
+                    <a href="">Fit Width</a>
+                    <a href="">Fit Height</a>
+                    <a href="">Rotate Left</a>
+                    <a href="">Rotate Right</a>
+                    <a href="">Full Screen</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -45,7 +68,7 @@
             <div id="instructions" class="container">
                 <h3>Instructions</h3>
                 <p>
-                    Recreate this page using <span class="onlyCSS">only CSS</span>. Do yourself a favor and 1) Do not
+                    Recreate this page using <span id="onlyCSS">only CSS</span>. Do yourself a favor and 1) Do not
                     view the source. Figure it out yourself. 2) Do not search for the solution. Learn CSS until you know
                     enough to do this.
                 </p>
