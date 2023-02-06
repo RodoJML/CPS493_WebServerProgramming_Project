@@ -137,6 +137,12 @@
             font-size: 1rem;
         }
 
+        .Items {
+            position: absolute;
+            display: none;
+            width: 100%;
+        }
+
         .dropdownOptions a {
             color: purple;
         }
@@ -145,8 +151,14 @@
             background-color: lightgreen;
         }
 
+        input {
+            position: absolute;
+            top: -1000px;
+        }
+
         .menuOption:hover .dropdownOptions{display:block;}
-        .menuOption:focus-within .dropdownOptions{display:flex;}
+        .menuOption:focus-within .dropdownOptions{display:block;}
+}
 
     </style>
 
@@ -176,7 +188,8 @@
             </li>
 
             <li class="menuOption" >
-                <a>Edit</a>
+                
+                <label>Edit<input /></label>
                 <div id="Edit" class="dropdownOptions">
                     <a href="">Undo</a>
                     <a href="">Redo</a>
@@ -202,6 +215,7 @@
                 </div>
             </li>
         </ul>
+
     </nav>
 
     <main>
