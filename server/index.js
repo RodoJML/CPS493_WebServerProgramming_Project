@@ -3,9 +3,10 @@ const http = require('http');
 // Any function from HTTP is now available here
 
 
-const hostname = '127.0.0.1';                       // Loopbackl address
-const port = process.env.PORT || 3000;              // Commonly used as a development port
-// We use 
+const hostname = '127.0.0.1';                       
+// Loopbackl address
+const port = process.env.PORT || 3000;              
+// Commonly used as a development port
 
 const server = http.createServer((req, res) => {
 // When a text message comes in, run this function...
