@@ -2,7 +2,6 @@
 ## On this repository we will be storing all files for the assignments and final project.
 
 **STEP 1**
-        
         Run int the root folder the "npm init" command, to setup the package.json file and be able to later manage all dependencies. 
 
 **STEP 2**
