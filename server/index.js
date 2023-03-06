@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
 
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello New Paltz');
+  res.end('My Final Project for Web Programming / Started March 6, 2023');
 });
 
 
