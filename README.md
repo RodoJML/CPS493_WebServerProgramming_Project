@@ -46,7 +46,7 @@
 
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        res.end('Hello New Paltz');
+        res.end('Enter any text here to display on browser');
         });
 
         server.listen(port, () => {
@@ -60,3 +60,11 @@
 
         In the "root" run the command "npm init vue@latest"
         This will create the "client" folder and all files and folders. (boilerplate)
+
+**REMINDER**
+
+        Package.json       || 
+        Package-lock.json  || Keeps track of the version packaging and dependencies version, always keep on GIT.
+
+
+        
