@@ -23,3 +23,12 @@ STEP 3
     -Nodemon: This dependencie will be watching your folder, and when there's a change it restarts the server to see changes. Valid use only for Development purposes, NOT for production. 
 
     IMPORTANT REMINDER: DONT'T use EJS, DON'T use Express for server side rendering or template.
+
+STEP 4
+    Run the command "npm i" to install all dependencies.
+    Make sure you are in the correct folder! In this case, is the root. 
+
+
+STEP 5
+    Add "index.js" in the server folder. 
+
