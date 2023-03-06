@@ -77,6 +77,23 @@
                 -assets
                 -components     (Here store each individual component that made the page)
                 -model          (Logic happens here, for example the session valindation, user info )
-                -router         (Links to other pages components)
+                -router         (Routes to other components) (Secureroute is coded here)
                 -views          
         Delete all VUE default (Hellow World) files, as these are not neeed.
+
+**STEP 9** 
+
+        Add Bulma into your project
+
+        First add depencies into the correct "Package.json" this is the one withing "client" folder
+
+        "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.3.0",
+        "bulma": "^0.9.4",
+        "vue": "^3.2.47",
+        "vue-router": "^4.1.6"
+        },
+
+        Then import bulma...
+        This can be done by importing the "main.ts" or "main.css"
+        For better organization we will impor it from "main.css"
