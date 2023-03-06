@@ -35,9 +35,28 @@
 
 **STEP 5**
 
-        Add "index.js" in the server folder.
+        Add "index.js" in the server folder. With the following code:
+        
+        const http = require('http');
+
+        const hostname = '127.0.0.1';             
+        const port = process.env.PORT || 3000;
+
+        const server = http.createServer((req, res) => {
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end('Hello New Paltz');
+        });
+
+        server.listen(port, () => {
+
+        console.log(`Server running at http://${hostname}:${port}/`);
+        });
+
+
 
 **STEP 6**
 
         In the "root" run the command "npm init vue@latest"
-        This will create the "client" folder and all required files and folders.
+        This will create the "client" folder and all files and folders. (boilerplate)
