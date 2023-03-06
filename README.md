@@ -97,3 +97,7 @@
         Then import bulma...
         This can be done by importing the "main.ts" or "main.css"
         For better organization we will impor it from "main.css"
+
+        REMINDER
+        Using "@" import from "Modules" (Recommended)
+        Using "." imports from local folder
