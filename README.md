@@ -1,10 +1,12 @@
 # CPS493_Web_Server_Programming_Project
 ## On this repository we will be storing all files for the assignments and final project.
 
-STEP 1
+**STEP 1**
+        
         Run int the root folder the "npm init" command, to setup the package.json file and be able to later manage all dependencies. 
 
-STEP 2
+**STEP 2**
+        
         Created a "client" and "server" folders in the root 
 
 STEP 3
