@@ -71,3 +71,6 @@
         Running "npm run build"
         Creates the app for production 
 
+**STEP 8**
+
+        Delete all VUE default (Hellow World) files, as these are not neeed.
