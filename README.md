@@ -61,10 +61,13 @@
         In the "root" run the command "npm init vue@latest"
         This will create the "client" folder and all files and folders. (boilerplate)
 
-**REMINDER**
-
+        REMINDER
         Package.json       || 
         Package-lock.json  || Keeps track of the version packaging and dependencies version, always keep on GIT.
 
 
-        
+**STEP 7**
+
+        Running "npm run build"
+        Creates the app for production 
+
