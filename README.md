@@ -72,6 +72,7 @@
         Creates the app for production 
 
 **STEP 8**
+
         Check folder structure, making sure I have the following:
                 -assets
                 -components     (Here store each individual component that made the page)
