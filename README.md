@@ -2,13 +2,15 @@
 ## On this repository we will be storing all files for the assignments and final project.
 
 **STEP 1**
+
         Run int the root folder the "npm init" command, to setup the package.json file and be able to later manage all dependencies. 
 
 **STEP 2**
         
         Created a "client" and "server" folders in the root 
 
-STEP 3
+**STEP 3**
+
         Add the following dependencies to the "package.json"
 
         "dependencies": {
@@ -25,15 +27,17 @@ STEP 3
 
         IMPORTANT REMINDER: DONT'T use EJS, DON'T use Express for server side rendering or template.
 
-STEP 4
+**STEP 4**
+
         Run the command "npm i" to install all dependencies.
         Make sure you are in the correct folder!!!! In this case, is the "root"
 
 
-STEP 5
+**STEP 5**
+
         Add "index.js" in the server folder.
 
+**STEP 6**
 
-STEP 6
         In the "root" run the command "npm init vue@latest"
         This will create the "client" folder and all required files and folders.
