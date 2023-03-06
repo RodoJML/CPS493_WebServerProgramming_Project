@@ -72,5 +72,10 @@
         Creates the app for production 
 
 **STEP 8**
-
+        Check folder structure, making sure I have the following:
+                -assets
+                -components     (Here store each individual component that made the page)
+                -model          (Logic happens here, for example the session valindation, user info )
+                -router         (Links to other pages components)
+                -views          
         Delete all VUE default (Hellow World) files, as these are not neeed.
