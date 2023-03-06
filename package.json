@@ -1,0 +1,27 @@
+{
+  "name": "cps493_web_server_programming_project",
+  "version": "1.0.0",
+  "description": "Final project for Web Server Programming",
+  "main": "index.js",
+  "license": "BSD",
+  "author": "Rodolfo Meneses Leal",
+  
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js --watch server"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodoJML/CPS493_Web_Server_Programming_Project.git"
+  },
+
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+
+}
