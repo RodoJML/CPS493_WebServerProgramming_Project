@@ -85,7 +85,7 @@
 
         Add Bulma into your project
 
-        First add depencies into the correct "Package.json" this is the one withing "client" folder
+        First add depencies into the correct "Package.json" this is the one within "client" folder
 
         "dependencies": {
         "@fortawesome/fontawesome-free": "^6.3.0",
@@ -101,3 +101,4 @@
         REMINDER
         Using "@" import from "Modules" (Recommended)
         Using "." imports from local folder
+
