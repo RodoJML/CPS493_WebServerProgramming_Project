@@ -28,7 +28,7 @@ const foodItems = ref(getFood());
                         </div>
 
                         <div class="media-right">
-                            <button class="button is-warning">Eat</button>
+                            <button class="button is-warning is-focused"> Eat </button>
                         </div>
                     </div>
                 </div>
