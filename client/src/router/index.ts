@@ -11,6 +11,6 @@ const router = createRouter({
 
 export default router
 
-function secureRoute(to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext){
+//function secureRoute(to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext){
   // Here we will be creating the secure routes
-}
+//}
