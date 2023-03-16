@@ -4,65 +4,65 @@
             "id": 1,
             "dish": "Hamburger",
             "calories": 549,
-            "thumbnail": "@/assets/Burger_Final.png",
-            "images": ["@/assets/Burger_Final.png"]
+            "thumbnail": "/src/assets/Burger_Final.png",
+            "images": ["/src/assets/Burger_Final.png"]
         },
         {
             "id": 2,
             "dish": "Donut",
             "calories": 612,
-            "thumbnail": "@/assets/Donut.png",
-            "images": ["@/assets/Donut.png"]
+            "thumbnail": "/src/assets/Donut.png",
+            "images": ["/src/assets/Donut.png"]
         },
         {
            "id": 3,
             "dish": "Chicken",
             "calories": 200,
-            "thumbnail": "@/assets/Drumstick.png",
-            "images": ["@/assets/Drumstick.png"]
+            "thumbnail": "/src/assets/Drumstick.png",
+            "images": ["/src/assets/Drumstick.png"]
         },
         {
             "id": 4,
             "dish": "Fries",
             "calories": 200,
-            "thumbnail": "@/assets/Drumstick.png",
-            "images": ["@/assets/Drumstick.png"]
+            "thumbnail": "/src/assets/Fries.png",
+            "images": ["/src/assets/Fries.png"]
         },
         {
            "id": 5,
             "dish": "Fruit Juice",
             "calories": 121,
-            "thumbnail": "@/assets/Glass_Drink.png",
-            "images": ["@/assets/Glass_Drink.png"]
+            "thumbnail": "/src/assets/Glass_Drink.png",
+            "images": ["/src/assets/Glass_Drink.png"]
         },
         {
             "id": 6,
             "dish": "Hot Dog",
             "calories": 300,
-            "thumbnail": "@/assets/Hot_Dog.png",
-            "images": ["@/assets/Hot_Dog.png"]
+            "thumbnail": "/src/assets/Hot_Dog.png",
+            "images": ["/src/assets/Hot_Dog.png"]
         },
         {
            "id": 7,
             "dish": "Sandwich",
             "calories": 192,
-            "thumbnail": "@/assets/Sandwich.png",
-            "images": ["@/assets/Sandwich.png"]
+            "thumbnail": "/src/assets/Sandwich.png",
+            "images": ["/src/assets/Sandwich.png"]
         },
         {
             "id": 8,
             "dish": "Soda Can",
             "calories": 180,
-            "thumbnail": "@/assets/Soda_Can.png",
-            "images": ["@/assets/Soda_Can.png"]
+            "thumbnail": "/src/assets/Soda_Can.png",
+            "images": ["/src/assets/Soda_Can.png"]
         },
         {
             "id": 9,
             "dish": "Soda Glass",
             "calories": 172,
-            "thumbnail": "@/assets/Soda_Cup.png",
-            "images": ["@/assets/Soda_Cup.png"]
-        },
+            "thumbnail": "/src/assets/Soda_Cup.png",
+            "images": ["/src/assets/Soda_Cup.png"]
+        }],
     "total": 9,
     "skip": 0,
     "limit": 30

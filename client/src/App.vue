@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HomeView from './views/HomeView.vue';
 import NavBar from './components/NavBar.vue';
+import { RouterView } from 'vue-router';
 
 </script>
 
@@ -10,7 +10,7 @@ import NavBar from './components/NavBar.vue';
     <NavBar/>
 
     <div class="container">
-      <HomeView/>
+      <RouterView/>
     </div>
     
   </header>
