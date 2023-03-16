@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { getUserData } from '@/model/userData';
 
 </script>
 
 <template>
     <div class="container">
         <div class="columns">
+
             <article class="column message is-warning">
                 <div class="message-header">
                     <p>Ways to Add Calories</p>
@@ -19,7 +22,9 @@
                     <br/><br/>Make everything you drink count.
                 </div>
             </article>
-            <div class="column box">TEST</div>
+
+            <div class="column box is-half" v-for="product in products" :key="product.id">TEST</div>
+
             <div class="column box">TEST</div>
         </div>
     </div>
