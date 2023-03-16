@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getUserData } from '@/model/userData';
 
 </script>
 
@@ -23,9 +22,22 @@ import { getUserData } from '@/model/userData';
                 </div>
             </article>
 
-            <div class="column box is-half" v-for="product in products" :key="product.id">TEST</div>
+            <div class="column box is-half">TEST</div>
 
-            <div class="column box">TEST</div>
+            <article class="column message is-warning">
+                <div class="message-header">
+                    <p>How to Cut Calories</p>
+                </div>
+                <div class="message-body">
+                    Do not skip meals.
+                    <br/><br/>Swap your snack. Many people reach for a snack or two in between meals.
+                    <br/><br/>Cut one high-calorie treat. Try to remove one high-calorie food item each day.
+                    <br/><br/>Do not drink your calories.
+                    <br/><br/>Make low calorie substitutions.
+                    <br/><br/>Ask for a doggie bag.
+                    <br/><br/>Just say "no" to fried food.
+                </div>
+            </article>
         </div>
     </div>
 </template>
@@ -33,5 +45,9 @@ import { getUserData } from '@/model/userData';
 <style scoped>
 .column {
     margin: 1rem;
+}
+
+.container{
+    margin-top: 1rem;
 }
 </style>

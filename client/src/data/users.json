@@ -1,0 +1,29 @@
+{
+	"users": [
+		
+		{
+		"id": 1,
+		"name": "Rodolfo Meneses",
+		"email": "menesesr1@newpaltz.edu",
+		"user": "RodoJML",
+		"photo": "/src/assets/users/7309681.jpg"
+		},
+		
+		{
+		"id": 2,
+		"name": "Moshe Plotkin",
+		"email": "plotkinm@newpaltz.edu",
+		"user": "JewPaltz",
+		"photo": "/src/assets/users/7309693.jpg"
+		},
+		
+		{
+		"id": 3,
+		"name": "Steve Jobs",
+		"email": "steve@jobs.com",
+		"user": "4pple",
+		"photo": "/src/assets/users/7309700.jpg"
+		}
+		
+	]
+}
