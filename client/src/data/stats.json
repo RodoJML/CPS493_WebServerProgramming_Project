@@ -1,0 +1,103 @@
+{
+	"stats": [
+	
+	{
+		"id": 1,
+		"user" : "RodoJML",
+		"photo": "/src/assets/users/7309681.jpg",
+		"type": "Daily",
+    	"calories": 549,
+        "totalDishes": 3,
+        "date": "2 hr ago | 2023-03-21",
+        "restaurant": "Burger King"
+	},
+	
+	{
+		"id": 2,
+		"user" : "RodoJML",
+		"photo": "/src/assets/users/7309681.jpg",
+		"type": "Weekly",
+    	"calories": 8000,
+        "totalDishes": 5,
+        "date": "Week 1",
+        "restaurant": "Burger King"
+	},
+	
+	{
+		"id": 3,
+		"user" : "RodoJML",
+		"photo": "/src/assets/users/7309681.jpg",
+		"type": "Monthly",
+    	"calories": 75550,
+        "totalDishes": 30,
+        "date": "March",
+        "restaurant": "Burger King"
+	},
+	
+	{
+		"id": 4,
+		"user" : "JewPaltz",
+		"photo": "/src/assets/users/7309693.jpg",
+		"type": "Daily",
+    	"calories": 300,
+        "totalDishes": 3,
+        "date": "11 hr ago | 2023-03-21",
+        "restaurant": "Barnea Bistro"
+	},
+	
+	{
+		"id": 5,
+		"user" : "JewPaltz",
+		"photo": "/src/assets/users/7309693.jpg",
+		"type": "Weekly",
+    	"calories": 5555,
+        "totalDishes": 5,
+        "date": "Week 1",
+        "restaurant": "Barnea Bistro"
+	},
+	
+	{
+		"id": 6,
+		"user" : "JewPaltz",
+		"photo": "/src/assets/users/7309693.jpg",
+		"type": "Monthly",
+    	"calories": 80000,
+        "totalDishes": 30,
+        "date": "March",
+        "restaurant": "Barnea Bistro"
+	},
+	
+	{
+		"id": 7,
+		"user" : "4pple",
+		"photo": "/src/assets/users/7309700.jpg",
+		"type": "Daily",
+    	"calories": 777,
+        "totalDishes": 3,
+        "date": "105000 hr ago | 2011-03-21",
+        "restaurant": "Caffe Macs"
+	},
+	
+	{
+		"id": 8,
+		"user" : "4pple",
+		"photo": "/src/assets/users/7309700.jpg",
+		"type": "Weekly",
+    	"calories": 7577,
+        "totalDishes": 5,
+        "date": "Week 1",
+        "restaurant": "Caffe Macs"
+	},
+	
+	{
+		"id": 9,
+		"user" : "4pple",
+		"photo": "/src/assets/users/7309700.jpg",
+		"type": "Monthly",
+    	"calories": 90000,
+        "totalDishes": 30,
+        "date": "March",
+        "restaurant": "Caffe Macs"
+	}
+	]
+}

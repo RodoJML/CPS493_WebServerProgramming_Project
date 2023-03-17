@@ -26,12 +26,12 @@ import LoginBadge from '@/components/LoginBadge.vue';
                     
                     <RouterLink to="/dashboard" class="navbar-item">
                         <i class="fa-solid fa-gauge"></i>&nbsp
-                        Dashboard
+                        Calories
                     </RouterLink>
 
-                    <RouterLink to="/dashboard" class="navbar-item">
+                    <RouterLink to="/meals" class="navbar-item">
                         <i class="fa-solid fa-person-dots-from-line"></i>&nbsp
-                        My Meals
+                        Meals
                     </RouterLink>
                     
 
@@ -41,8 +41,8 @@ import LoginBadge from '@/components/LoginBadge.vue';
                     </RouterLink>
 
                     <RouterLink to="/friends" class="navbar-item">
-                        <i class="fa-solid fa-search"></i>&nbsp
-                        Find Friends
+                        <i class="fa-solid fa-users"></i>&nbsp
+                        Friends
                     </RouterLink>
 
                 </div>

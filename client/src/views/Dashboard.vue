@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { getStats } from '@/model/stats';
+import { useSession } from '@/model/session';
+
+const stats = ref(getStats());
+const session = useSession();
 
 </script>
 
@@ -13,16 +18,29 @@ import { ref } from 'vue';
                 </div>
                 <div class="message-body">
                     Do not skip meals.
-                    <br/><br/>Add snacks between meals and at bedtime.
-                    <br/><br/>Keep foods and snacks that are easy to prepare or pre-packaged on hand.
-                    <br/><br/>Make meal time pleasant.
-                    <br/><br/>Plan meal times around energy levels.
-                    <br/><br/>Eat the highest calorie item on your plate first.
-                    <br/><br/>Make everything you drink count.
+                    <br /><br />Add snacks between meals and at bedtime.
+                    <br /><br />Keep foods and snacks that are easy to prepare or pre-packaged on hand.
+                    <br /><br />Make meal time pleasant.
+                    <br /><br />Plan meal times around energy levels.
+                    <br /><br />Eat the highest calorie item on your plate first.
+                    <br /><br />Make everything you drink count.
                 </div>
             </article>
 
-            <div class="column box is-half">TEST</div>
+            <div class="column is-half">
+
+                <div v-for="stat in stats">
+                    <div class="box" v-if="stat.user == session.user?.user">
+                        <div class="wrapper">
+                            <strong>{{ stat.type }}</strong>
+                            <div class="title">{{ stat.calories }}</div>Calories
+                        </div>
+                    </div>
+                </div>
+
+                <img src="@/assets/eating.png" alt="eating" width="500" height="500">
+
+            </div>
 
             <article class="column message is-warning">
                 <div class="message-header">
@@ -30,12 +48,12 @@ import { ref } from 'vue';
                 </div>
                 <div class="message-body">
                     Do not skip meals.
-                    <br/><br/>Swap your snack. Many people reach for a snack or two in between meals.
-                    <br/><br/>Cut one high-calorie treat. Try to remove one high-calorie food item each day.
-                    <br/><br/>Do not drink your calories.
-                    <br/><br/>Make low calorie substitutions.
-                    <br/><br/>Ask for a doggie bag.
-                    <br/><br/>Just say "no" to fried food.
+                    <br /><br />Swap your snack. Many people reach for a snack or two in between meals.
+                    <br /><br />Cut one high-calorie treat. Try to remove one high-calorie food item each day.
+                    <br /><br />Do not drink your calories.
+                    <br /><br />Make low calorie substitutions.
+                    <br /><br />Ask for a doggie bag.
+                    <br /><br />Just say "no" to fried food.
                 </div>
             </article>
         </div>
@@ -47,7 +65,24 @@ import { ref } from 'vue';
     margin: 1rem;
 }
 
-.container{
+.container {
     margin-top: 1rem;
+}
+
+.box {
+    margin-bottom: 1rem;
+}
+
+.title {
+    color: chocolate;
+    font-size: 5rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 </style>

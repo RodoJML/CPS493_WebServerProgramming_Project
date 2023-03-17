@@ -9,7 +9,7 @@ const foodItems = ref(getFood());
 <template>
     <div class="food-list">
         <div class="food-item" v-for="foodItem in foodItems" :key="foodItem.id">
-            <br/>
+            <br />
             <article class="message is-warning">
                 <div class="message-body">
                     <div class="media">
@@ -22,32 +22,33 @@ const foodItems = ref(getFood());
 
                         <div class="media-content">
                             <strong class="dish">{{ foodItem.dish }}</strong>
-                            <br/>
-                            <span class="calories">{{ foodItem.calories }}</span> 
-   
+                            <br />
+                            <span class="calories">{{ foodItem.calories }}</span> Cal
+
                         </div>
 
                         <div class="media-right">
-                            <button class="button is-warning is-focused"> Eat </button>
+                            <button class="button is-warning is-focused">
+                                <i class="fa-solid fa-cookie-bite"> Eat </i>
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </article>
-        </div> 
+        </div>
     </div>
-    <br/>
+    <br />
 </template>
 
 <style scoped>
-
 .calories {
     color: darkslategray;
     font-size: xx-large;
     font-weight: bold;
 }
 
-.cal{
+.cal {
     color: sienna;
 }
-
 </style>
