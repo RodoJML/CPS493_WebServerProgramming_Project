@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useStats, addToStats, type Stats } from '@/model/stats';
+import { useSession } from '@/model/session';
 
+const session = useSession();
 const stats = useStats();
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
@@ -31,7 +33,7 @@ var date = new Date();
                         <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
 
-                    <form @submit.prevent="addToStats(newStat, date)">
+                    <form @submit.prevent="addToStats(newStat, date, session.user?.photo, session.user?.user)">
                         <section class="modal-card-body">
 
                             <div class="field">
@@ -58,6 +60,7 @@ var date = new Date();
                                             <option>Burger King</option>
                                             <option>Caffe Macs</option>
                                             <option>Barnea Bistro</option>
+                                            <option>Reserve Cut</option>
                                         </select>
                                     </div>
                                 </div>
@@ -125,7 +128,10 @@ var date = new Date();
                             </div>
 
                             <div class="media-right">
-                                <time>{{ stat.date }}</time>
+                                <time>
+                                    <i class="fa-solid fa-calendar"></i>
+                                    {{ stat.date }}
+                                </time>
                                 &nbsp;
                                 <button class="delete" @click="stat.type = ' '"></button>
                             </div>

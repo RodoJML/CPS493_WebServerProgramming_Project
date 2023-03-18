@@ -1,8 +1,7 @@
 import data from '../data/stats.json';
 import { ref } from 'vue';
-import { useSession } from './session';
+import type { User } from './session';
 
-const session = useSession();
 const stats = ref([] as Stats[]);
 stats.value = data.stats;
 
@@ -17,40 +16,23 @@ export interface Stats {
     restaurant?: string;
 }
 
-/*export function emptyStat(): Stats {
-    return {
-        id: stats.value.length + 1,
-        user: session.user?.user,
-        photo: session.user?.photo,
-        type: 'Daily',
-        calories: 0,
-        totalDishes: 0,
-        date: '',
-        restaurant: ''
-    }
-}*/
+export function addToStats(testStat: Stats, date: Date, photo: string | undefined, user: string | undefined) {
 
-export function addToStats(testStat: Stats, date: Date) {
+    var userDate = new Date(date).getDate();
+    var current = new Date().getDate();
 
-    var userDate = new Date(date);
-    var current = new Date();
-
-    var userMili = userDate.getDate();
-    var currentMili = current.getDate();
+    var daysAgo = (current - userDate) - 1;
 
     stats.value.push({
         id: stats.value.length + 1,
-        user: 'Current User',
-        photo: 'https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif',
+        user: user,
+        photo: photo,
         type: 'Daily',
         calories: testStat.calories,
         totalDishes: testStat.totalDishes,
-        date: JSON.stringify(date),
+        date: JSON.stringify(date) + ' | ' + daysAgo + ' days ago',
         restaurant: testStat.restaurant
     });
-
-    alert(userMili);
-    alert(currentMili);
 }
 
 
