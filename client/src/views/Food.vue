@@ -1,8 +1,17 @@
 <script setup lang="ts">
 import { getFood } from '@/model/food';
 import { ref } from 'vue';
+import { addToCalCalc } from '@/model/stats';
 
+import Flyout from '@/components/Flyout.vue';
+import CalCard from '@/components/CalCard.vue';
+
+const isCalCardActive = ref(false);
 const foodItems = ref(getFood());
+
+function toggleCalCard() {
+    isCalCardActive.value = !isCalCardActive.value;
+}
 
 </script>
 
@@ -28,7 +37,7 @@ const foodItems = ref(getFood());
                         </div>
 
                         <div class="media-right">
-                            <button class="button is-warning is-focused">
+                            <button class="button is-warning is-focused" @click="addToCalCalc(foodItem.calories)" @mouseenter="toggleCalCard" @mouseleave="toggleCalCard">
                                 <i class="fa-solid fa-cookie-bite"> Eat </i>
                             </button>
                         </div>
@@ -38,7 +47,11 @@ const foodItems = ref(getFood());
             </article>
         </div>
     </div>
-    <br />
+
+    <Flyout :class="{ 'is-active': isCalCardActive}">
+        <CalCard />
+    </Flyout>
+
 </template>
 
 <style scoped>
@@ -51,4 +64,5 @@ const foodItems = ref(getFood());
 .cal {
     color: sienna;
 }
+
 </style>

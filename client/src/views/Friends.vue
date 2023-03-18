@@ -88,7 +88,7 @@ var date = new Date();
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="stat.type == 'Daily'">
+                <div class="card" v-if="stat.type == 'Meal' || stat.type == 'Daily'">
 
                     <div class="card-image">
                         <figure class="image is-3by1">

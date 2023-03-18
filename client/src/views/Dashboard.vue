@@ -30,7 +30,7 @@ const session = useSession();
             <div class="column is-half">
 
                 <div v-for="stat in stats">
-                    <div class="box" v-if="stat.user == session.user?.user">
+                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Meal'">
                         <div class="wrapper">
                             <strong>{{ stat.type }}</strong>
                             <div class="title">{{ stat.calories }}</div>Calories

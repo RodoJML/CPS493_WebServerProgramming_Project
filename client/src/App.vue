@@ -7,19 +7,17 @@ import { RouterView } from 'vue-router';
 <template>
   <header>
 
-    <NavBar/>
+    <NavBar />
 
     <div class="container">
-      <RouterView/>
+      <RouterView />
     </div>
-    
-  </header>
 
+  </header>
 </template>
 
 <style scoped>
-  header {
-    background-color: #FEB84B;
-  }
-
+header {
+  background-color: #FEB84B;
+}
 </style>

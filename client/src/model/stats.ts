@@ -1,8 +1,10 @@
 import data from '../data/stats.json';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import type { User } from './session';
 
 const stats = ref([] as Stats[]);
+const calculatorData = ref([] as CalCalc[]);
+
 stats.value = data.stats;
 
 export interface Stats {
@@ -16,6 +18,11 @@ export interface Stats {
     restaurant?: string;
 }
 
+export interface CalCalc {
+    id: number;
+    calories: number;
+}
+
 export function addToStats(testStat: Stats, date: Date, photo: string | undefined, user: string | undefined) {
 
     var userDate = new Date(date).getDate();
@@ -27,7 +34,7 @@ export function addToStats(testStat: Stats, date: Date, photo: string | undefine
         id: stats.value.length + 1,
         user: user,
         photo: photo,
-        type: 'Daily',
+        type: 'Meal',
         calories: testStat.calories,
         totalDishes: testStat.totalDishes,
         date: JSON.stringify(date) + ' | ' + daysAgo + ' days ago',
@@ -35,6 +42,12 @@ export function addToStats(testStat: Stats, date: Date, photo: string | undefine
     });
 }
 
+export function addToCalCalc(calories: number) {
+        calculatorData.value.push({
+            id: calculatorData.value.length + 1,
+            calories: calories
+        });
+}
 
 export function useStats() {
     return stats;
@@ -44,3 +57,9 @@ export function getStats(): Stats[] {
     
     return data.stats;
 }
+
+export function resetCalc(){
+    calculatorData.value = [];
+}
+
+export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));

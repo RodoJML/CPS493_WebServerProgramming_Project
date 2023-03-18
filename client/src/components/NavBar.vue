@@ -33,23 +33,23 @@ function toggleMenu() {
                     
                     <RouterLink to="/dashboard" class="navbar-item">
                         <i class="fa-solid fa-gauge"></i>&nbsp
-                        Calories
+                        Dashboard
                     </RouterLink>
 
                     <RouterLink to="/meals" class="navbar-item">
                         <i class="fa-solid fa-person-dots-from-line"></i>&nbsp
-                        My Meals
+                        Meals
                     </RouterLink>
                     
 
                     <RouterLink to="/food" class="navbar-item">
-                        <i class="fa-solid fa-burger"></i>&nbsp
-                        Eat
+                        <i class="fa-solid fa-calculator"></i>&nbsp
+                        Cal
                     </RouterLink>
 
                     <RouterLink to="/friends" class="navbar-item">
                         <i class="fa-solid fa-users"></i>&nbsp
-                        Friends Meals
+                        Friends
                     </RouterLink>
 
                 </div>
@@ -72,8 +72,7 @@ function toggleMenu() {
 
             </div>
         </div>
-
-
+        
     </nav>
 </template>
 
