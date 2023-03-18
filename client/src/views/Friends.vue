@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getStats } from '@/model/stats';
-const stats = ref(getStats());
+import { useStats, addToStats, type Stats } from '@/model/stats';
+
+const stats = useStats();
+const isModalActive = ref(false);
+const newStat: Stats = ({} as any) as Stats;
+
+function toggleModal() { isModalActive.value = !isModalActive.value }
+var date = new Date();
+
 </script>
 
 <template>
@@ -11,28 +18,72 @@ const stats = ref(getStats());
 
         <div class="column is-three-quarters">
 
-            <button class="button is-warning is-focused is-fullwidth">
+            <div class="title">Friends are eating...</div>
+            <button class="button is-warning is-focused is-fullwidth" @click="toggleModal">
                 <i class="fa-solid fa-cookie-bite"> Eat </i>
             </button>
 
-            <div class="modal">
+            <div class="modal" :class="{ 'is-active': isModalActive }">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                     <header class="modal-card-head">
-                        <p class="modal-card-title">Modal title</p>
-                        <button class="delete" aria-label="close"></button>
+                        <p class="modal-card-title">Share your calories</p>
+                        <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
-                    <section class="modal-card-body">
-                        <!-- Content ... -->
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-success">Save changes</button>
-                        <button class="button">Cancel</button>
-                    </footer>
+
+                    <form @submit.prevent="addToStats(newStat, date)">
+                        <section class="modal-card-body">
+
+                            <div class="field">
+                                <label class="label">Date</label>
+                                <div class="control">
+                                    <input v-model="date" type="date" class="input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Calories</label>
+                                <div class="control">
+                                    <input v-model="newStat.calories" class="input" type="text" placeholder="Numbers input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Restaurant</label>
+                                <div class="control">
+                                    <div class="select is-warning">
+                                        <select v-model="newStat.restaurant">
+                                            <option>Dining Hall</option>
+                                            <option>Mac Donalds</option>
+                                            <option>Burger King</option>
+                                            <option>Caffe Macs</option>
+                                            <option>Barnea Bistro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Dishes</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select v-model="newStat.totalDishes">
+                                            <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success" type="submit" @click="toggleModal">Submit</button>
+                        </footer>
+                    </form>
                 </div>
             </div>
 
-            <div v-for="stat in stats">
+            <div v-for="stat in stats.slice().reverse()">
 
                 <div class="card" v-if="stat.type == 'Daily'">
 
@@ -74,9 +125,9 @@ const stats = ref(getStats());
                             </div>
 
                             <div class="media-right">
-                                <time datetime="2016-1-1">{{ stat.date }}</time>
+                                <time>{{ stat.date }}</time>
                                 &nbsp;
-                                <button class="delete"></button>
+                                <button class="delete" @click="stat.type = ' '"></button>
                             </div>
                         </div>
                     </div>

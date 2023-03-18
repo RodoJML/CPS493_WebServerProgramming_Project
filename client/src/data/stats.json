@@ -8,7 +8,7 @@
 		"type": "Daily",
     	"calories": 549,
         "totalDishes": 3,
-        "date": "2 hr ago | 2023-03-21",
+        "date": "2023-03-10",
         "restaurant": "Burger King"
 	},
 	
@@ -19,7 +19,7 @@
 		"type": "Weekly",
     	"calories": 8000,
         "totalDishes": 5,
-        "date": "Week 1",
+        "date": "2023-03-10",
         "restaurant": "Burger King"
 	},
 	
@@ -30,7 +30,7 @@
 		"type": "Monthly",
     	"calories": 75550,
         "totalDishes": 30,
-        "date": "March",
+        "date": "2023-03-10",
         "restaurant": "Burger King"
 	},
 	
@@ -41,7 +41,7 @@
 		"type": "Daily",
     	"calories": 300,
         "totalDishes": 3,
-        "date": "11 hr ago | 2023-03-21",
+        "date": "2023-03-10",
         "restaurant": "Barnea Bistro"
 	},
 	
@@ -52,7 +52,7 @@
 		"type": "Weekly",
     	"calories": 5555,
         "totalDishes": 5,
-        "date": "Week 1",
+        "date": "2023-03-10",
         "restaurant": "Barnea Bistro"
 	},
 	
@@ -63,7 +63,7 @@
 		"type": "Monthly",
     	"calories": 80000,
         "totalDishes": 30,
-        "date": "March",
+        "date": "2023-03-10",
         "restaurant": "Barnea Bistro"
 	},
 	
@@ -74,7 +74,7 @@
 		"type": "Daily",
     	"calories": 777,
         "totalDishes": 3,
-        "date": "105000 hr ago | 2011-03-21",
+        "date": "2023-03-10",
         "restaurant": "Caffe Macs"
 	},
 	
@@ -85,7 +85,7 @@
 		"type": "Weekly",
     	"calories": 7577,
         "totalDishes": 5,
-        "date": "Week 1",
+        "date": "2023-03-10",
         "restaurant": "Caffe Macs"
 	},
 	
@@ -96,8 +96,10 @@
 		"type": "Monthly",
     	"calories": 90000,
         "totalDishes": 30,
-        "date": "March",
+        "date": "2023-03-10",
         "restaurant": "Caffe Macs"
 	}
 	]
 }
+
+

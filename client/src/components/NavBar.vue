@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import LoginBadge from '@/components/LoginBadge.vue';
+
+const isMenuActive = ref(false);
+
+function toggleMenu() {
+    isMenuActive.value = !isMenuActive.value;
+}
 
 </script>
 
@@ -14,14 +21,14 @@ import LoginBadge from '@/components/LoginBadge.vue';
                     <div class="title">Cal<span class="titleC">C</span></div>
                 </RouterLink>
 
-                <div class="navbar-burger">
+                <div class="navbar-burger" :class="{'is-active': isMenuActive}" @click="toggleMenu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
 
-            <div class="navbar-menu">
+            <div class="navbar-menu" :class="{'is-active': isMenuActive}">
                 <div class="navbar-start">
                     
                     <RouterLink to="/dashboard" class="navbar-item">
