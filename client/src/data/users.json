@@ -1,29 +1,32 @@
 {
 	"users": [
-		
 		{
-		"id": 1,
-		"name": "Rodolfo Meneses",
-		"email": "menesesr1@newpaltz.edu",
-		"user": "RodoJML",
-		"photo": "/src/assets/users/7309681.jpg"
+			"id": 1,
+			"name": "Rodolfo Meneses",
+			"email": "menesesr1@newpaltz.edu",
+			"user": "RodoJML",
+			"photo": "/src/assets/users/7309681.jpg"
 		},
-		
 		{
-		"id": 2,
-		"name": "Moshe Plotkin",
-		"email": "plotkinm@newpaltz.edu",
-		"user": "JewPaltz",
-		"photo": "/src/assets/users/7309693.jpg"
+			"id": 2,
+			"name": "Moshe Plotkin",
+			"email": "plotkinm@newpaltz.edu",
+			"user": "JewPaltz",
+			"photo": "/src/assets/users/7309693.jpg"
 		},
-		
 		{
-		"id": 3,
-		"name": "Steve Jobs",
-		"email": "steve@jobs.com",
-		"user": "4pple",
-		"photo": "/src/assets/users/7309700.jpg"
+			"id": 3,
+			"name": "Steve Jobs",
+			"email": "steve@jobs.com",
+			"user": "4pple",
+			"photo": "/src/assets/users/7309700.jpg"
+		},
+		{
+			"id": 4,
+			"name": "Generic User",
+			"email": "no@name.edu",
+			"user": "GenericUser",
+			"photo": "https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif"
 		}
-		
 	]
 }

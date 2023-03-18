@@ -98,7 +98,30 @@
         "totalDishes": 30,
         "date": "2023-03-10",
         "restaurant": "Caffe Macs"
+	},
+
+	{
+		"id": 10,
+		"user" : "RodoJML",
+		"photo": "/src/assets/users/7309681.jpg",
+		"type": "Daily",
+    	"calories": 750,
+        "totalDishes": 4,
+        "date": "2023-03-18",
+        "restaurant": "Mac Donalds"
+	},
+
+	{
+		"id": 10,
+		"user" : "JewPaltz",
+		"photo": "/src/assets/users/7309693.jpg",
+		"type": "Daily",
+    	"calories": 1000,
+        "totalDishes": 1,
+        "date": "2023-03-18",
+        "restaurant": "Reserve Cut"
 	}
+
 	]
 }
 
