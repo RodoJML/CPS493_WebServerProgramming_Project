@@ -1,6 +1,7 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { useSession, useLogin, useLogout, getUsers} from '@/model/session';
+    import { resetCalc } from '@/model/stats';
 
     const session = useSession();
     const logout = useLogout();
@@ -13,7 +14,7 @@
     <div class="navbar-item" v-if="session.user">
         <img class="userImage" :src="session.user.photo" alt="eating" width="28" height="28">
         <strong>{{ session.user.name }}</strong>
-        <a @click="logout">
+        <a @click="logout" @mouseup="resetCalc">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
         

@@ -33,7 +33,7 @@ const session = useSession();
                     <div class="wrapper">
                         <strong>Recent Calories</strong>
                         {{ readUser(session.user?.user) }}
-                        <div class="title">{{ myRecentCalories }}</div>(*See Meals tab for details)
+                        <div class="title">{{ myRecentCalories }}</div>(*See My Meals tab for details)
                     </div>
                 </div>
 
