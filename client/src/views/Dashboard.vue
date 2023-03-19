@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { getStats } from '@/model/stats';
 import { useSession } from '@/model/session';
-import { totalDailyCal } from '@/model/stats';
+import { myDailyCalories } from '@/model/stats';
 
 const stats = ref(getStats());
 const session = useSession();
@@ -31,7 +31,7 @@ const session = useSession();
                 <div class="box" v-if="session.user?.user">
                     <div class="wrapper">
                         <strong>Daily</strong>
-                        {{ totalDailyCal }}
+                        <div class="title">{{ myDailyCalories }}</div>Calories
                     </div>
                 </div>
 
