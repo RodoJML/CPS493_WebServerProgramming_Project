@@ -15,7 +15,7 @@
             </div>
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/waiter-5283956-4404218.png" alt="waiter">
         </article>
-        
+
     </div>
 </template>
 
@@ -24,4 +24,10 @@
     margin: 2rem;
 }
 
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 </style>
