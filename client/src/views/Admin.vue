@@ -3,12 +3,10 @@ import { ref } from 'vue';
 import { getUsers } from '@/model/session';
 
 const users = ref(getUsers());
-
 </script>
 
 <template>
     <div class="wrapper">
-
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
                 <li><a href="/">CalC</a></li>
@@ -16,9 +14,7 @@ const users = ref(getUsers());
                 <li><a href="/admin">Users</a></li>
             </ul>
         </nav>
-
         <button class="button is-warning is-focused">+ Add User</button>
-
         <table class="table is-fullwidth">
             <thead>
                 <tr>
@@ -28,7 +24,6 @@ const users = ref(getUsers());
                     <th><abbr title="Handle">Handle</abbr></th>
                 </tr>
             </thead>
-
             <tbody>
                 <tr v-for="user in users">
                     <td> <img class="userImage" :src="user.photo" alt="userImage" width="124" height="124"> </td>
@@ -39,9 +34,7 @@ const users = ref(getUsers());
             </tbody>
         </table>
     </div>
-
     <br/><br/><br/>
-
 </template>
 
 <style scoped>
@@ -61,5 +54,4 @@ const users = ref(getUsers());
 
     margin: 1rem;
 }
-
 </style>

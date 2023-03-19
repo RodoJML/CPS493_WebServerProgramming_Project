@@ -4,28 +4,22 @@ import { useStats, addToStats, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
 
 const session = useSession();
-
 const stats = useStats();
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
-
-function toggleModal() { isModalActive.value = !isModalActive.value }
 var date = new Date();
 
+function toggleModal() { isModalActive.value = !isModalActive.value }
 </script>
 
 <template>
     <div class="columns">
-
         <div class="column"></div>
-
         <div class="column is-three-quarters">
-
             <div class="title">I'm eating...</div>
             <button class="button is-warning is-focused is-fullwidth" @click="toggleModal">
                 <i class="fa-solid fa-cookie-bite"> Eat </i>
             </button>
-
             <div class="modal" :class="{ 'is-active': isModalActive }">
                 <div class="modal-background"></div>
                 <div class="modal-card">
@@ -33,24 +27,20 @@ var date = new Date();
                         <p class="modal-card-title">Share your calories</p>
                         <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
-
                     <form @submit.prevent="addToStats(newStat, date, session.user?.photo, session.user?.user)">
                         <section class="modal-card-body">
-
                             <div class="field">
                                 <label class="label">Date</label>
                                 <div class="control">
                                     <input v-model="date" type="date" class="input">
                                 </div>
                             </div>
-
                             <div class="field">
                                 <label class="label">Calories</label>
                                 <div class="control">
                                     <input v-model="newStat.calories" class="input" type="text" placeholder="Numbers input">
                                 </div>
                             </div>
-
                             <div class="field">
                                 <label class="label">Restaurant</label>
                                 <div class="control">
@@ -66,7 +56,6 @@ var date = new Date();
                                     </div>
                                 </div>
                             </div>
-
                             <div class="field">
                                 <label class="label">Dishes</label>
                                 <div class="control">
@@ -77,8 +66,6 @@ var date = new Date();
                                     </div>
                                 </div>
                             </div>
-
-
                         </section>
                         <footer class="modal-card-foot">
                             <button class="button is-success" type="submit" @click="toggleModal">Submit</button>
@@ -90,28 +77,23 @@ var date = new Date();
             <div v-for="stat in stats.slice().reverse()">
 
                 <div class="card" v-if="stat.type == 'Meal' && stat.user == session.user?.user ">
-
                     <div class="card-image">
                         <figure class="image is-3by1">
                             <img v-bind:src="'/src/assets/restaurants/' + stat.restaurant + '.jpg'" alt="Placeholder image">
                         </figure>
                     </div>
-
                     <div class="card-content">
-
                         <div class="media">
                             <div class="media-left">
                                 <figure class="image is-64x64">
                                     <img class="userImage" :src="stat.photo" alt="Placeholder image">
                                 </figure>
                             </div>
-
                             <div class="media-content">
                                 @<strong>{{ stat.user }}</strong>
                                 <br />
                                 <i class="fa-solid fa-location-dot"></i>
                                 {{ stat.restaurant }}
-
                                 <div class="columns">
                                     <div class="column">
                                         <div class="title">{{ stat.calories }}</div>Calories
@@ -121,13 +103,10 @@ var date = new Date();
                                         <div class="title">{{ stat.totalDishes }}</div>Dishes
                                     </div>
                                 </div>
-
                                 <a><i class="fa-solid fa-share"></i></a>
                                 <a><i class="fa-solid fa-heart"></i></a>
                                 <a><i class="fa-solid fa-retweet"></i></a>
-
                             </div>
-
                             <div class="media-right">
                                 <time>
                                     <i class="fa-solid fa-calendar"></i>
@@ -141,10 +120,8 @@ var date = new Date();
                 </div>
             </div>
         </div>
-
         <div class="column">
         </div>
-
     </div>
 </template>
 

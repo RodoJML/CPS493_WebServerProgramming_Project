@@ -11,7 +11,6 @@ const session = useSession();
 <template>
     <div class="container">
         <div class="columns">
-
             <article class="column message is-warning">
                 <div class="message-header">
                     <p>Ways to Add Calories</p>
@@ -26,9 +25,7 @@ const session = useSession();
                     <br /><br />Make everything you drink count.
                 </div>
             </article>
-
             <div class="column is-half">
-
                 <div v-for="stat in stats">
                     <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Meal'">
                         <div class="wrapper">
@@ -37,11 +34,8 @@ const session = useSession();
                         </div>
                     </div>
                 </div>
-
                 <img src="@/assets/eating.png" alt="eating" width="500" height="500">
-
             </div>
-
             <article class="column message is-warning">
                 <div class="message-header">
                     <p>How to Cut Calories</p>
