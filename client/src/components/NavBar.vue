@@ -65,6 +65,12 @@ function toggleMenu() {
                             <i class="fa-brands fa-github"></i>
                         </button>
                     </a>
+
+                    <a class="navbar-item" href="https://instagram.com/rodojml?igshid=Mzc1MmZhNjY=">
+                        <button class="button is-danger is-rounded is-focused">
+                            <i class="fa-brands fa-instagram"></i>
+                        </button>
+                    </a>
                     
                     <LoginBadge/>
                     

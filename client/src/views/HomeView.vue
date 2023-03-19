@@ -14,8 +14,7 @@
         <p class="explanation">
           Counting calories can help people reach and maintain their weight and fitness goals,
           as it involves tracking how much energy is going into the body each day.
-          Several apps and online tools can estimate how many daily calories a person needs
-          to reach their goals and help track them day by day.
+          Use this app to estimate how many calories you've eaten to reach your goals and track them day by day.
         </p>
         <br /><br />
         <p class="explanation">
