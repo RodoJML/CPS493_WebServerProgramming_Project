@@ -76,7 +76,7 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="stat.type == 'Meal' && stat.user == session.user?.user ">
+                <div class="card" v-if="stat.type == 'Daily' && stat.user == session.user?.user ">
                     <div class="card-image">
                         <figure class="image is-3by1">
                             <img v-bind:src="'/src/assets/restaurants/' + stat.restaurant + '.jpg'" alt="Placeholder image">

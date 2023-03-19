@@ -1,21 +1,22 @@
 import data from '../data/stats.json';
-import { computed, ref } from 'vue';
-import type { User } from './session';
+import { computed, ref, reactive } from 'vue';
 
 const stats = ref([] as Stats[]);
 const calculatorData = ref([] as CalCalc[]);
 
+//const userValue = reactive({ user: null as string | null });
+
 stats.value = data.stats;
 
 export interface Stats {
-    id?: number;
+    id: number;
     user?: string;
     photo?: string;
-    type?: string;
-    calories?: number;
-    totalDishes?: number;
-    date?: string;
-    restaurant?: string;
+    type: string;
+    calories: number;
+    totalDishes: number;
+    date: string;
+    restaurant: string;
 }
 
 export interface CalCalc {
@@ -34,12 +35,14 @@ export function addToStats(testStat: Stats, date: Date, photo: string | undefine
         id: stats.value.length + 1,
         user: user,
         photo: photo,
-        type: 'Meal',
+        type: 'Daily',
         calories: testStat.calories,
         totalDishes: testStat.totalDishes,
         date: JSON.stringify(date) + ' | ' + daysAgo + ' days ago',
         restaurant: testStat.restaurant
     });
+
+
 }
 
 export function addToCalCalc(calories: number) {
@@ -54,7 +57,6 @@ export function useStats() {
 }
 
 export function getStats(): Stats[] {
-    
     return data.stats;
 }
 
@@ -62,4 +64,12 @@ export function resetCalc(){
     calculatorData.value = [];
 }
 
+/*export function readUser(user: string){
+    userValue.user = user;
+}*/
+
 export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
+
+export const dailyCal = computed(() => stats.value.filter((stat) => stat.type === 'Daily' && stat.user == 'RodoJML'));
+
+export const totalDailyCal = computed(() => dailyCal.value.reduce((total, dailyCal) => total + dailyCal.calories, 0));
