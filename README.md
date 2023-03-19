@@ -104,4 +104,14 @@
 
 **STEP 10**
 
+        Create the required "views" and "components"
+
+        Add .json files into the "data" folder as mock or dummy data.
+        If you are connected to a database this is not required...
+
+**STEP 11**
+
+        
+
+
         

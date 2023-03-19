@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { getStats } from '@/model/stats';
 import { useSession } from '@/model/session';
+import { totalDailyCal } from '@/model/stats';
 
 const stats = ref(getStats());
 const session = useSession();
@@ -26,14 +27,23 @@ const session = useSession();
                 </div>
             </article>
             <div class="column is-half">
+
+                <div class="box" v-if="session.user?.user">
+                    <div class="wrapper">
+                        <strong>Daily</strong>
+                        <div class="title">{{ totalDailyCal }}</div>Calories
+                    </div>
+                </div>
+
                 <div v-for="stat in stats">
-                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Meal'">
+                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Daily'">
                         <div class="wrapper">
                             <strong>{{ stat.type }}</strong>
                             <div class="title">{{ stat.calories }}</div>Calories
                         </div>
                     </div>
                 </div>
+
                 <img src="@/assets/eating.png" alt="eating" width="500" height="500">
             </div>
             <article class="column message is-warning">
