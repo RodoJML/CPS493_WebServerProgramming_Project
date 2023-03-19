@@ -12,7 +12,6 @@ const foodItems = ref(getFood());
 function toggleCalCard() {
     isCalCardActive.value = !isCalCardActive.value;
 }
-
 </script>
 
 <template>
@@ -22,26 +21,22 @@ function toggleCalCard() {
             <article class="message is-warning">
                 <div class="message-body">
                     <div class="media">
-
                         <div class="media-left">
                             <figure class="image is-96x96">
                                 <img :src="foodItem.thumbnail" alt="foodImage">
                             </figure>
                         </div>
-
                         <div class="media-content">
                             <strong class="dish">{{ foodItem.dish }}</strong>
                             <br />
                             <span class="calories">{{ foodItem.calories }}</span> Cal
 
                         </div>
-
                         <div class="media-right">
                             <button class="button is-warning is-focused" @click="addToCalCalc(foodItem.calories)" @mouseenter="toggleCalCard" @mouseleave="toggleCalCard">
                                 <i class="fa-solid fa-cookie-bite"> Eat </i>
                             </button>
                         </div>
-
                     </div>
                 </div>
             </article>
@@ -64,5 +59,4 @@ function toggleCalCard() {
 .cal {
     color: sienna;
 }
-
 </style>
