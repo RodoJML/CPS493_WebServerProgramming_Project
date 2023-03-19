@@ -9,11 +9,10 @@ import { calcTotal, resetCalc } from '@/model/stats';
             <div class="content">
                 Calories Ingested
                 <div class="title">
-                    {{calcTotal}}
+                    {{ calcTotal }}
                 </div>
-            
-            <img src="https://assets.stickpng.com/images/5a0c6dfa9642de34b6b65cc9.png" 
-            alt="reset" width="160" height="160" @click="resetCalc">
+                <img src="https://pnglib.nyc3.cdn.digitaloceanspaces.com/uploads/2020/08/reset-button_5f348ce4dedba.png" alt="reset" width="160"
+                    height="160" @click="resetCalc">
             </div>
         </div>
     </div>
@@ -38,5 +37,4 @@ import { calcTotal, resetCalc } from '@/model/stats';
     font-size: 4rem;
     color: darkslategray;
 }
-
 </style>
