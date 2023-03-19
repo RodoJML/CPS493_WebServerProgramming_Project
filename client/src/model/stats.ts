@@ -42,15 +42,18 @@ export function addToStats(testStat: Stats, date: Date, photo: string | undefine
 
     dailyData.value.push({
         id: dailyData.value.length + 1,
-        calories: testStat.calories
+        calories: Number(testStat.calories)     
+        //Why I need to cast here   
     });
 
+    alert(myDailyCalories.value);
 }
 
 export function addToCalCalc(calories: number) {
         calculatorData.value.push({
             id: calculatorData.value.length + 1,
             calories: calories
+            //And here not?  
         });
 }
 
