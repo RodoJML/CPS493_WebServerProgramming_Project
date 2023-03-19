@@ -10,7 +10,7 @@
             </div>
             <div class="message-body">
                 Before accessing any of the features of this app, please log-in.
-                Select the "Log-in" option and select and user to log-in as.
+                Go to "Log-in" in the navigation bar and select an user.
             </div>
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/waiter-5283956-4404218.png" alt="waiter">
         </article>
