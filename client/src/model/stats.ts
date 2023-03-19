@@ -3,6 +3,7 @@ import { computed, ref, reactive } from 'vue';
 
 const stats = ref([] as Stats[]);
 const calculatorData = ref([] as CalCalc[]);
+const statsFiltered = computed(() => stats.value.filter((stat) => stat.type === 'Daily' && stat.user == 'RodoJML'));
 
 //const userValue = reactive({ user: null as string | null });
 
@@ -64,12 +65,11 @@ export function resetCalc(){
     calculatorData.value = [];
 }
 
+
+
 /*export function readUser(user: string){
     userValue.user = user;
 }*/
 
 export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
-
-export const dailyCal = computed(() => stats.value.filter((stat) => stat.type === 'Daily' && stat.user == 'RodoJML'));
-
-export const totalDailyCal = computed(() => dailyCal.value.reduce((total, dailyCal) => total + dailyCal.calories, 0));
+export const totalDailyCal = computed(() => statsFiltered.value.reduce((total, dailyCal) => total + dailyCal.calories, 0));
