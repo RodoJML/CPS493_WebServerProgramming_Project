@@ -31,7 +31,7 @@ const session = useSession();
                 <div class="box" v-if="session.user?.user">
                     <div class="wrapper">
                         <strong>Daily</strong>
-                        <div class="title">{{ totalDailyCal }}</div>Calories
+                        {{ totalDailyCal }}
                     </div>
                 </div>
 
