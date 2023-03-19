@@ -1,6 +1,7 @@
 import data from '../data/users.json';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import { resetCalc } from './stats';
 
 const session = reactive({ user: null as User | null })
 
@@ -23,6 +24,7 @@ export function useLogin(user: User) {
 
 export function useLogout() {
     const router = useRouter();
+    resetCalc();
 
     return function () {
         session.user = null;

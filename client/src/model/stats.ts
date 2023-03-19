@@ -2,9 +2,8 @@ import data from '../data/stats.json';
 import { computed, ref, reactive } from 'vue';
 
 const stats = ref([] as Stats[]);
-
-const calculatorData = ref([] as CalCalc[]);
-const dailyData = ref([] as CalCalc[]);
+const calculatorData = ref([] as CalCalc[]); // For Calculator Tab
+const currentUser = reactive({ user1: null as string | null })
 
 stats.value = data.stats;
 export interface Stats {
@@ -34,19 +33,11 @@ export function addToStats(testStat: Stats, date: Date, photo: string | undefine
         user: user,
         photo: photo,
         type: 'Daily',
-        calories: testStat.calories,
+        calories: Number(testStat.calories),
         totalDishes: testStat.totalDishes,
         date: JSON.stringify(date) + ' | ' + daysAgo + ' days ago',
         restaurant: testStat.restaurant
     });
-
-    dailyData.value.push({
-        id: dailyData.value.length + 1,
-        calories: Number(testStat.calories)     
-        //Why I need to cast here   
-    });
-
-    alert(myDailyCalories.value);
 }
 
 export function addToCalCalc(calories: number) {
@@ -55,6 +46,10 @@ export function addToCalCalc(calories: number) {
             calories: calories
             //And here not?  
         });
+}
+
+export function readUser(user: string) {
+    currentUser.user1 = user;
 }
 
 export function useStats() {
@@ -70,4 +65,5 @@ export function resetCalc(){
 }
 
 export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
-export const myDailyCalories = computed(() => dailyData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
+export const filteredStats = computed(() => stats.value.filter((stat) => stat.type == 'Daily' && stat.user == currentUser.user1));
+export const myRecentCalories = computed(() => filteredStats.value.reduce((total, calorieData) => total + calorieData.calories, 0));

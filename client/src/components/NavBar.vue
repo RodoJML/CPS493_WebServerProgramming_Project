@@ -38,13 +38,13 @@ function toggleMenu() {
 
                     <RouterLink to="/meals" class="navbar-item">
                         <i class="fa-solid fa-person-dots-from-line"></i>&nbsp
-                        Meals
+                        My Meals
                     </RouterLink>
                     
 
                     <RouterLink to="/food" class="navbar-item">
                         <i class="fa-solid fa-calculator"></i>&nbsp
-                        Cal
+                        CalC
                     </RouterLink>
 
                     <RouterLink to="/friends" class="navbar-item">
