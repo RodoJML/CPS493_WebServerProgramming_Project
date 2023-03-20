@@ -38,7 +38,7 @@ const session = useSession();
                 </div>
 
                 <div v-for="stat in stats">
-                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Daily'">
+                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Daily' && stat.type != ' '">
                         <div class="wrapper">
                             <strong>{{ stat.type }} Calories</strong> 
                             <div class="title non-dynamic">{{ stat.calories }}</div>(Not Dynamic)
