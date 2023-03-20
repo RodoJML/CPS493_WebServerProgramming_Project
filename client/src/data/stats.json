@@ -74,7 +74,7 @@
 		"type": "Daily",
     	"calories": 777,
         "totalDishes": 3,
-        "date": "2023-03-10",
+        "date": "2011-03-01",
         "restaurant": "Caffe Macs"
 	},
 	
@@ -85,7 +85,7 @@
 		"type": "Weekly",
     	"calories": 7577,
         "totalDishes": 5,
-        "date": "2023-03-10",
+        "date": "2011-03-01",
         "restaurant": "Caffe Macs"
 	},
 	
@@ -96,7 +96,7 @@
 		"type": "Monthly",
     	"calories": 90000,
         "totalDishes": 30,
-        "date": "2023-03-10",
+        "date": "2011-03-01",
         "restaurant": "Caffe Macs"
 	},
 
