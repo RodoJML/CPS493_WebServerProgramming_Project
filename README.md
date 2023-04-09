@@ -3,7 +3,9 @@
 
 **STEP 1**
 
-        Run int the root folder the "npm init" command, to setup the package.json file and be able to later manage all dependencies. 
+        Run "git init" if you are created git locally
+        Otherwise create your remote repo from GitHub.com and run the "clone" command.
+        Run "npm init" command, to setup the package.json file and be able to later manage all dependencies. 
 
 **STEP 2**
         
