@@ -15,3 +15,16 @@ export function rest(url: string, data?: any, method?: string, headers?: any) {
         : res.json().then(x => {throw ({...x, message: x.error}) }));
 }
 
+export function api(url: string, data?: any, method?: string, headers?: any) {
+    return rest(API_URL + url, data, method, headers);
+}
+
+export type DataEnvelope<T> = {
+    data: T,
+    isSuccess: boolean,
+    error?: string,
+}
+
+export type DataEnvelopeList<T> = DataEnvelope<T[]> & {
+    total: number,
+}
