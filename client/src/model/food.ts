@@ -8,7 +8,7 @@ export interface FoodItem {
     images: string[];
 }
 
-export function getFood(): FoodItem[] {
+export function getFood(): Promise<> {
     return data.food;
 }
 
