@@ -1,6 +1,7 @@
 import data from '../data/users.json';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import * as MyFetch from './myFetch';
 
 const session = reactive({ user: null as User | null })
 export interface User {
