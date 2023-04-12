@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import { getFood } from '@/model/food';
+import { getFood, type FoodItem } from '@/model/food';
 import { ref } from 'vue';
 import { addToCalCalc } from '@/model/stats';
 
 import Flyout from '@/components/Flyout.vue';
 import CalCard from '@/components/CalCard.vue';
 
+const foodItems = ref<FoodItem[]>([]);
+
+getFood().then((food) => {
+    foodItems.value = food.data;
+});
+
 const isCalCardActive = ref(false);
-const foodItems = ref(getFood());
 
 function toggleCalCard() {
     isCalCardActive.value = !isCalCardActive.value;

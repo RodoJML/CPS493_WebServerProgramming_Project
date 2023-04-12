@@ -5,7 +5,7 @@ function getFood() {
 }
 
 function getFoodById(id) {
-    return data.food.find(food => food.id === id);
+    return data.food.find(singleFood => singleFood.id == id);
 }
 
 function addFood(food) {
@@ -14,12 +14,12 @@ function addFood(food) {
 }
 
 function updateFood(food){
-    const index = data.food.findIndex(p => p.id === food.id);
+    const index = data.food.findIndex(p => p.id == food.id);
     data.food[index] = food;
 }
 
 function deleteFood(id){
-    const index = data.food.findIndex(p => p.id === id);
+    const index = data.food.findIndex(p => p.id == id);
     data.food.splice(index, 1);
 }
 
