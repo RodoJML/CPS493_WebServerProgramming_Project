@@ -19,7 +19,7 @@ router
     })
 
     .get('/:id', (req, res) => {
-        const id = req.params.id;
+        const id = +req.params.id;
         const food = model.getFoodById(id);
         const data = { data: food, isSuccess: true };
         res.send(data);
