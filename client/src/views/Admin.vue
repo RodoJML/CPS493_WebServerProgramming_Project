@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getUsers } from '@/model/session';
+import type { User } from '@/model/session';
 
-const users = ref(getUsers());
+const users = ref<User[]>([]);
+
+getUsers().then((loadedData) => {
+    users.value = loadedData.data;
+});
+
 </script>
 
 <template>
@@ -34,7 +40,7 @@ const users = ref(getUsers());
             </tbody>
         </table>
     </div>
-    <br/><br/><br/>
+    <br /><br /><br />
 </template>
 
 <style scoped>
@@ -50,7 +56,7 @@ const users = ref(getUsers());
     margin-bottom: 1rem;
 }
 
-.eating{
+.eating {
 
     margin: 1rem;
 }

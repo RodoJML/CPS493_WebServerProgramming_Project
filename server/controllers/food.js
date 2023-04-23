@@ -4,11 +4,19 @@ const model = require('../models/food');
 
 
 router
-    .get('/', (req, res) => {
-        const allFood = model.getFood();
-        const data = { data: allFood, total: allFood.length, isSuccess: true };
-        // Return as data envelope
-        res.send(data)
+    // .get('/', (req, res) => {
+    //     const allFood = model.getFood();
+    //     const data = { data: allFood, total: allFood.length, isSuccess: true };
+    //     // Return as data envelope
+    //     res.send(data)
+    // })
+
+    .get('/', (req, res, next) => {
+        model.getFood()
+        .then( result => {
+            const data = { data: result.food, total: result.total, isSuccess: true };
+            res.send(data);
+        })
     })
 
     .get('/search/:name', (req, res) => {
@@ -44,6 +52,15 @@ router
         model.deleteFood(id);
         const data = { isSuccess: true };
         res.send(data);
+    })
+
+    .post('/seed', (req, res, next) => {
+        model.seed()
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data);
+        })
+        .catch(next);
     })
 
 module.exports = router;

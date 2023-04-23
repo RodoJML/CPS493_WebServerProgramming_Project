@@ -1,7 +1,20 @@
 const data = require('../data/food.json');
 
-function getFood() {
-    return data.food;
+// This boilerplate is present in all models
+const  { connect, ObjectID } = require('./mongo');
+const COLLECTION_NAME = "food";
+
+async function collection() {
+    const db = await connect();
+    return db.collection(COLLECTION_NAME);
+}
+// -------------------------------------------
+
+async function getFood() {
+    const col = await collection();
+    const food = await col.find().toArray();
+    const total = await col.countDocuments();
+    return {food, total};
 }
 
 function getFoodById(id) {
@@ -30,11 +43,17 @@ function searchFood(searchTerm) {
     });
 }
 
+async function seed() {
+    const col = await collection();
+    await col.insertMany(data.food);
+}
+
 module.exports = {
     getFood,
     getFoodById,
     addFood,
     updateFood,
     deleteFood,
-    searchFood
+    searchFood,
+    seed,
 };
