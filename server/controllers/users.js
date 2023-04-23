@@ -12,3 +12,14 @@ router
     })
     .catch(next);
 })
+
+.post('/seed', (req, res, next) => {
+    model.seed()
+    .then( result => {
+        const data = { data: result, isSuccess: true };
+        res.send(data);
+    })
+    .catch(next);
+})
+
+module.exports = router;

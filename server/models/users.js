@@ -16,6 +16,12 @@ async function getAll(){
     return { users, total };
 }
 
+async function seed(){
+    const col = await collection();
+    await col.insertMany(data.users);
+}
+
 module.exports = {
-    getAll
+    getAll,
+    seed
 }
