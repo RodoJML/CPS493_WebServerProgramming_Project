@@ -1,4 +1,5 @@
 // Module imports 
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 
@@ -26,7 +27,7 @@ app
 app
     .get('/api/v1/', (req, res) => { res.send('Hello World! From Express') })
     .use('/api/v1/food', food)
-    .use('/api/v1/user', users)
+    .use('/api/v1/users', users)
 
 // Catch all
 app
