@@ -2,11 +2,16 @@
     import { ref } from 'vue';
     import { useSession, useLogin, useLogout, getUsers} from '@/model/session';
     import { resetCalc } from '@/model/stats';
+    import type { User } from '@/model/session';
 
     const session = useSession();
     const logout = useLogout();
-    const users = ref(getUsers());
-
+    const users = ref<User[]>([]);
+    
+    getUsers().then((loadedData) => {
+        users.value = loadedData.data;
+    });
+   
 </script>
 
 <template>

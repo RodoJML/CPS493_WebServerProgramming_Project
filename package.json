@@ -5,21 +5,19 @@
   "main": "index.js",
   "license": "BSD",
   "author": "Rodolfo Meneses Leal",
-  
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js --watch server"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RodoJML/CPS493_Web_Server_Programming_Project.git"
   },
-
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.3.0"
   },
-
   "devDependencies": {
     "nodemon": "^2.0.20"
   }
