@@ -1,7 +1,7 @@
 const data = require('../data/food.json');
 
 // This boilerplate is present in all models
-const  { connect, ObjectID } = require('./mongo');
+const  { connect, ObjectId } = require('./mongo');
 const COLLECTION_NAME = "food";
 
 async function collection() {
@@ -17,31 +17,38 @@ async function getFood() {
     return {food, total};
 }
 
-function getFoodById(id) {
-    return data.food.find(singleFood => singleFood.id == id);
+async function getFoodById(idNumber) {
+    const col = await collection();
+    const food = await col.findOne({ id: +idNumber });
+    return {food};
 }
 
-function addFood(food) {
-    food.id = data.food.length + 1;
-    data.food.push(food);
-}
+// --- These functions are commented since I dont need it for this project ---
+// function getFoodById(id) {
+//     return data.food.find(singleFood => singleFood.id == id);
+// }
 
-function updateFood(food){
-    const index = data.food.findIndex(p => p.id == food.id);
-    data.food[index] = food;
-}
+// function addFood(food) {
+//     food.id = data.food.length + 1;
+//     data.food.push(food);
+// }
 
-function deleteFood(id){
-    const index = data.food.findIndex(p => p.id == id);
-    data.food.splice(index, 1);
-}
+// function updateFood(food){
+//     const index = data.food.findIndex(p => p.id == food.id);
+//     data.food[index] = food;
+// }
 
-function searchFood(searchTerm) {
-    return data.food.filter(food => {
-        return food.dish.toLowerCase().includes(searchTerm.toLowerCase()) 
-        || food.calories.toString().includes(searchTerm);
-    });
-}
+// function deleteFood(id){
+//     const index = data.food.findIndex(p => p.id == id);
+//     data.food.splice(index, 1);
+// }
+
+// function searchFood(searchTerm) {
+//     return data.food.filter(food => {
+//         return food.dish.toLowerCase().includes(searchTerm.toLowerCase()) 
+//         || food.calories.toString().includes(searchTerm);
+//     });
+// }
 
 async function seed() {
     const col = await collection();
@@ -51,9 +58,5 @@ async function seed() {
 module.exports = {
     getFood,
     getFoodById,
-    addFood,
-    updateFood,
-    deleteFood,
-    searchFood,
     seed,
 };
