@@ -8,55 +8,65 @@ async function collection() {
     const db = await connect();
     return db.collection(COLLECTION_NAME);
 }
-// -------------------------------------------
 
-async function getFood() {
+async function getAll(){
     const col = await collection();
-    const food = await col.find().toArray();
+    const objects = await col.find().toArray();
     const total = await col.countDocuments();
-    return {food, total};
+    return { objects, total };
 }
 
-async function getFoodById(idNumber) {
+async function getById(id){
     const col = await collection();
-    const food = await col.findOne({ id: +idNumber });
-    return {food};
+    const object = await col.findOne({ id: +id });
+    return object;
 }
 
-// --- These functions are commented since I dont need it for this project ---
-// function getFoodById(id) {
-//     return data.food.find(singleFood => singleFood.id == id);
-// }
+async function add(food){
+    const col = await collection();
+    const object = await col.insertOne(user);
+    food._id = object.insertedId;
+    return food;
+}
 
-// function addFood(food) {
-//     food.id = data.food.length + 1;
-//     data.food.push(food);
-// }
+async function update(food){
+    const col = await collection();
+    const result = await col.updateOne({ id: +food.id }, { $set: food }, { returnDocument: 'after' });
+    return result.value;
+}
 
-// function updateFood(food){
-//     const index = data.food.findIndex(p => p.id == food.id);
-//     data.food[index] = food;
-// }
+async function remove(id){
+    const col = await collection();
+    const result = await col.deleteOne({ id: +id });
+    return result.deletedCount;
+}
 
-// function deleteFood(id){
-//     const index = data.food.findIndex(p => p.id == id);
-//     data.food.splice(index, 1);
-// }
-
-// function searchFood(searchTerm) {
-//     return data.food.filter(food => {
-//         return food.dish.toLowerCase().includes(searchTerm.toLowerCase()) 
-//         || food.calories.toString().includes(searchTerm);
-//     });
-// }
-
-async function seed() {
+async function seed(){
     const col = await collection();
     await col.insertMany(data.food);
 }
 
+async function search(seachTerm, page = 1, pageSize = 30){
+    const col = await collection();
+    const query = {
+        $or: [
+            { id: { $regex: searchTerm, $options: 'i'} },
+            { dish: { $regex: searchTerm, $options: 'i'}},
+            { calories: { $regex: searchTerm, $options: 'i'} },
+        ]
+    }
+
+    const objects = await col.find(query).skip((page-1) * pageSize).limit(pageSize).toArray();
+    const total = await col.countDocuments(query);
+    return { objects, total };
+}
+
 module.exports = {
-    getFood,
-    getFoodById,
+    getAll,
+    getById,
+    add,
+    update,
+    remove,
+    search,
     seed,
-};
+}

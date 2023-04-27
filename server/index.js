@@ -6,6 +6,7 @@ const path = require('path');
 // Controller imports 
 const food = require('./controllers/food');
 const users = require('./controllers/users');
+const stats = require('./controllers/stats');
 const app = express();
 
 // Socket 
@@ -28,6 +29,7 @@ app
     .get('/api/v1/', (req, res) => { res.send('Hello World! From Express') })
     .use('/api/v1/food', food)
     .use('/api/v1/users', users)
+    .use('/api/v1/stats', stats)
 
 // Catch all
 app

@@ -3,23 +3,62 @@ const router = express.Router();
 const model = require('../models/users');
 
 router
-.get('/', (req, res, next) => {
-    model.getAll()
-    .then( result => {
-        const data = { data: result.users, total: result.total, isSuccess: true };
-        // Returns data in the data envelope format
-        res.send(data);
+    .get('/', (req, res, next) => {
+        model.getAll()
+        .then( result => {
+            const data = { data: result.objects, total: result.total, isSuccess: true };
+            res.send(data);
+        }).catch(next)
     })
-    .catch(next);
-})
 
-.post('/seed', (req, res, next) => {
-    model.seed()
-    .then( result => {
-        const data = { data: result, isSuccess: true };
-        res.send(data);
+    .get('/:id', (req, res, next) => {
+        model.getById(req.params.id)
+        .then( result => {
+            const data = { data: result.object, total: result.total, isSuccess: true };
+            res.send(data);
+        }).catch(next)
     })
-    .catch(next);
-})
+
+    .post('/', (req, res, next) => {
+        model.add(req.body)
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data);
+        }).catch(next)
+    })
+
+    .patch('/:id', (req, res, next) => {
+        model.update(req.body)
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data);
+        }).catch(next)
+    })
+
+    .delete('/:id', (req, res, next) => {
+        model.remove(req.params.id)
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data)
+        }).catch(next)
+    })
+
+    .get('/search/:key', (req, res, next) => {
+        model.search(req.params.key)
+        .then( result => {
+            const data = { data: result.objects, total: result.total, isSuccess: true };
+            res.send(data)
+        }
+        ).catch(next);
+    })
+
+    .post('/seed', (req, res, next) => {
+        model.seed()
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data)
+        })
+        .catch(next);
+    });
 
 module.exports = router;
