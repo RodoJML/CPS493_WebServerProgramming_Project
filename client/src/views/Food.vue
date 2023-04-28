@@ -20,6 +20,9 @@ function toggleCalCard() {
 </script>
 
 <template>
+
+    <i v-if="!foodItems.length" class="fas fa-spinner fa-pulse fa-5x"></i>
+
     <div class="food-list">
         <div class="food-item" v-for="foodItem in foodItems" :key="foodItem.id">
             <br />
