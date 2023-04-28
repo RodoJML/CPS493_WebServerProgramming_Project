@@ -25,6 +25,11 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
         <div class="column is-three-quarters">
             <div class="title">I'm eating...</div>
             
+
+            <div class="loading" v-if="!stats.length">
+                <i class="fa-solid fa-spinner-third fa-spin"></i>
+            </div>
+
             <button class="button is-warning is-focused is-fullwidth" @click="toggleModal">
                 <i class="fa-solid fa-cookie-bite"> Eat </i>
             </button>
