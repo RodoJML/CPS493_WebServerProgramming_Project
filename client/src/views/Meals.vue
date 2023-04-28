@@ -11,7 +11,6 @@ getStats().then((result) => {
 
 const session = useSession();
 const router = useRouter();
-let seeAllUsers = router.currentRoute.value.path == '/friends';
 
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
