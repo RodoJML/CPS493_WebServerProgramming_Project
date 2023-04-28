@@ -1,7 +1,5 @@
-import data from '../../../server/data/users.json';
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
-import type { DataEnvelope } from './myFetch';
 import type { DataEnvelopeList } from './myFetch';
 
 import * as MyFetch from './myFetch';
@@ -54,6 +52,7 @@ export function getUsers(): Promise<DataEnvelopeList<User>> {
 }
 
 export function api(url: string, data?: any, method?: string, headers?: any) {
+    
     session.isLoading = true;
 
     return MyFetch.api(url, data, method, headers)
