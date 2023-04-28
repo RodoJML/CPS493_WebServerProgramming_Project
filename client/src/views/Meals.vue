@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStats, addToStats, type Stats } from '@/model/stats';
+import { getStats, addStat, removeStat, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
 
+const stats = ref<Stats[]>([]);
+getStats().then((result) => {
+    stats.value = result.data;
+});
+
 const session = useSession();
-const stats = useStats();
+
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
 var date = new Date();
@@ -27,7 +32,13 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
                         <p class="modal-card-title">Share your calories</p>
                         <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
-                    <form @submit.prevent="addToStats(newStat, date, session.user?.photo, session.user?.user)">
+                    <form @submit.prevent="addStat(newStat, date, session.user?.photo, session.user?.user)
+                            .then(result => {
+                                getStats().then((result) => {
+                                    stats = result.data;
+                                })
+                            })">
+
                         <section class="modal-card-body">
                             <div class="field">
                                 <label class="label">Date</label>
@@ -76,7 +87,9 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="stat.type == 'Daily' && stat.user == session.user?.user ">
+                <div class="card" v-if="stat.type == 'Daily' && stat.user == session.user?.user">
+                    <p>{{$route.query.page}}</p>
+                    
                     <div class="card-image">
                         <figure class="image is-3by1">
                             <img v-bind:src="'/src/assets/restaurants/' + stat.restaurant + '.jpg'" alt="Placeholder image">
@@ -113,7 +126,12 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
                                     {{ stat.date }}
                                 </time>
                                 &nbsp;
-                                <button class="delete" @click="stat.type = ' '"></button>
+                                <button class="delete" @click="() => {
+                                    removeStat(stat._id)
+                                    .then(response => {
+                                        stats = stats.filter((s) => s._id !== stat._id);
+                                    })
+                                }"></button>
                             </div>
                         </div>
                     </div>

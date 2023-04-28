@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getStats } from '@/model/stats';
+import { getStats, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
 import { myRecentCalories } from '@/model/stats';
 import { readUser } from '@/model/stats';
 
-const stats = ref(getStats());
+const stats = ref<Stats[]>([]);
+getStats().then((result) => {
+    stats.value = result.data;
+});
+
 const session = useSession();
 
 </script>

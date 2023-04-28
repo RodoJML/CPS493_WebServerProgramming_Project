@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStats, addToStats, type Stats } from '@/model/stats';
+import { getStats, addStat, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
 
 const session = useSession();
-const stats = useStats();
+
+const stats = ref<Stats[]>([]);
+getStats().then((result) => {
+    stats.value = result.data;
+});
+
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
 
@@ -27,7 +32,7 @@ var date = new Date();
                         <p class="modal-card-title">Share your calories</p>
                         <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
-                    <form @submit.prevent="addToStats(newStat, date, session.user?.photo, session.user?.user)">
+                    <form @submit.prevent="addStat(newStat, date, session.user?.photo, session.user?.user)">
                         <section class="modal-card-body">
                             <div class="field">
                                 <label class="label">Date</label>

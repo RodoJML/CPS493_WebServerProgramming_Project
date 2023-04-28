@@ -17,7 +17,7 @@ const router = createRouter({
     {path: '/dashboard', name: 'dashboard', component: Dashboard, beforeEnter: secureRoute},
     {path: '/admin', name: 'admin', component: Admin, beforeEnter: secureRoute},
     {path: '/meals', name: 'meals', component: Meals, beforeEnter: secureRoute},
-    {path: '/friends', name: 'friends', component: Friends, beforeEnter: secureRoute},
+    {path: '/friends', name: 'friends', component: Meals, beforeEnter: secureRoute},
     {path: '/secure', name: 'secure', component: SecureRoute}
   ]
 })
