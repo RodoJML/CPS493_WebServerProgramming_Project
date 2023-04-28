@@ -1,7 +1,7 @@
 const data = require('../data/stats.json');
 // This will be used only to seed the DB now 
 
-const { connect, ObjectID } = require('./mongo');
+const { connect, ObjectId } = require('./mongo');
 const COLLECTION_NAME = "stats";
 
 async function collection() {
@@ -26,6 +26,7 @@ async function add(stat){
     const col = await collection();
     const object = await col.insertOne(stat);
     stat._id = object.insertedId;
+    stat.id = object.insertedId;
     return stat;
 }
 
@@ -37,8 +38,8 @@ async function update(stat){
 
 async function remove(id){
     const col = await collection();
-    const result = await col.deleteOne({ id: +id });
-    return result.deletedCount;
+    const result = await col.deleteOne({ _id: new ObjectId(id) });
+    return result.deletedDocument;
 }
 
 async function seed(){
