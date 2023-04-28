@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { getStats, addStat, removeStat, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
+import { useRouter } from 'vue-router';
 
 const stats = ref<Stats[]>([]);
 getStats().then((result) => {
@@ -9,6 +10,8 @@ getStats().then((result) => {
 });
 
 const session = useSession();
+const router = useRouter();
+const seeAllUsers = (router.currentRoute.value.path === '/friends');
 
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
@@ -22,6 +25,7 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
         <div class="column"></div>
         <div class="column is-three-quarters">
             <div class="title">I'm eating...</div>
+            
             <button class="button is-warning is-focused is-fullwidth" @click="toggleModal">
                 <i class="fa-solid fa-cookie-bite"> Eat </i>
             </button>
@@ -87,9 +91,9 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="stat.type == 'Daily' && stat.user == session.user?.user">
-                    <p>{{$route.query.page}}</p>
+                <div class="card" v-if="seeAllUsers ? stat.type == 'Daily' : stat.type == 'Daily' && stat.user == session.user?.user">
                     
+
                     <div class="card-image">
                         <figure class="image is-3by1">
                             <img v-bind:src="'/src/assets/restaurants/' + stat.restaurant + '.jpg'" alt="Placeholder image">
