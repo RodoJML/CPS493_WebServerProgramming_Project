@@ -11,7 +11,7 @@ getStats().then((result) => {
 
 const session = useSession();
 const router = useRouter();
-const seeAllUsers = (router.currentRoute.value.path === '/friends');
+let seeAllUsers = router.currentRoute.value.path == '/friends';
 
 const isModalActive = ref(false);
 const newStat: Stats = ({} as any) as Stats;
@@ -91,7 +91,7 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="seeAllUsers ? stat.type == 'Daily' : stat.type == 'Daily' && stat.user == session.user?.user">
+                <div class="card" v-if="router.currentRoute.value.path == '/friends' ? stat.type == 'Daily' : stat.type == 'Daily' && stat.user == session.user?.user">
                     
 
                     <div class="card-image">
