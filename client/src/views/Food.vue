@@ -21,7 +21,7 @@ function toggleCalCard() {
 
 <template>
     <div class="loading" v-if="!foodItems.length">
-        <i class="fas fa-spinner fa-pulse fa-8x"></i>
+        <progress class="progress is-large is-dark" max="100">60%</progress>
     </div>
     
 
