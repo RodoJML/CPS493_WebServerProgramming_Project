@@ -21,6 +21,8 @@ function toggleCalCard() {
 
 <template>
 
+    <img v-if="!foodItems.length" src="/src/assets/loading.gif" alt="loading">
+    
     <i v-if="!foodItems.length" class="fas fa-spinner fa-pulse fa-5x"></i>
 
     <div class="food-list">
