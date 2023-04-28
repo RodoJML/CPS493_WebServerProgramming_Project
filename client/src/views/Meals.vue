@@ -27,7 +27,7 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
             
 
             <div class="loading" v-if="!stats.length">
-                <i class="fas fa-spinner"></i>
+                <i class="fa-solid fa-cookie-bite fa-shake fa-8x"></i>
             </div>
 
             <button class="button is-warning is-focused is-fullwidth" @click="toggleModal">
