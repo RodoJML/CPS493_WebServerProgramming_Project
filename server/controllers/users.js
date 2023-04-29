@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const model = require('../models/users');
+const { requireLogin } = require('../middleware/authorization');
+
 
 router
     .get('/', (req, res, next) => {
