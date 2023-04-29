@@ -5,6 +5,7 @@
 			"name": "Rodolfo Meneses",
 			"email": "menesesr1@newpaltz.edu",
 			"user": "RodoJML",
+			"password": "1234abc",
 			"photo": "/src/assets/users/7309681.jpg"
 		},
 		{
@@ -12,6 +13,7 @@
 			"name": "Moshe Plotkin",
 			"email": "plotkinm@newpaltz.edu",
 			"user": "JewPaltz",
+			"password": "1234abc",
 			"photo": "/src/assets/users/7309693.jpg"
 		},
 		{
@@ -19,6 +21,7 @@
 			"name": "Steve Jobs",
 			"email": "steve@jobs.com",
 			"user": "4pple",
+			"password": "1234abc",
 			"photo": "/src/assets/users/7309700.jpg"
 		},
 		{
@@ -26,6 +29,7 @@
 			"name": "Generic User",
 			"email": "no@name.edu",
 			"user": "GenericUser",
+			"password": "1234abc",
 			"photo": "https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif"
 		}
 	]
