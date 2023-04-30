@@ -6,7 +6,8 @@
 			"email": "menesesr1@newpaltz.edu",
 			"user": "RodoJML",
 			"password": "1234abc",
-			"photo": "/src/assets/users/7309681.jpg"
+			"photo": "/src/assets/users/7309681.jpg",
+			"token": ""
 		},
 		{
 			"id": 2,
@@ -14,7 +15,8 @@
 			"email": "plotkinm@newpaltz.edu",
 			"user": "JewPaltz",
 			"password": "1234abc",
-			"photo": "/src/assets/users/7309693.jpg"
+			"photo": "/src/assets/users/7309693.jpg",
+			"token": ""
 		},
 		{
 			"id": 3,
@@ -22,7 +24,8 @@
 			"email": "steve@jobs.com",
 			"user": "4pple",
 			"password": "1234abc",
-			"photo": "/src/assets/users/7309700.jpg"
+			"photo": "/src/assets/users/7309700.jpg",
+			"token": ""
 		},
 		{
 			"id": 4,
@@ -30,7 +33,8 @@
 			"email": "no@name.edu",
 			"user": "GenericUser",
 			"password": "1234abc",
-			"photo": "https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif"
+			"photo": "https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif",
+			"token": ""
 		}
 	]
 }

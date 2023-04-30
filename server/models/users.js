@@ -63,7 +63,6 @@ async function search(seachTerm, page = 1, pageSize = 30){
     return { objects, total };
 }
 
-
 async function login(email, password) {
     const col = await collection();
     const user = await col.findOne({ email });
