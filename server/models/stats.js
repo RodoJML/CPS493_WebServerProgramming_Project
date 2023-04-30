@@ -32,7 +32,7 @@ async function add(stat){
 
 async function update(stat){
     const col = await collection();
-    const result = await col.updateOne({ id: +stat.id }, { $set: stat }, { returnDocument: 'after' });
+    const result = await col.findOneAndUpdate({ _id: ObjectId(stat._id) }, { $set: stat }, { returnDocument: 'after' });
     return result.value;
 }
 
@@ -44,7 +44,8 @@ async function remove(id){
 
 async function seed(){
     const col = await collection();
-    await col.insertMany(data.stats);
+    const result = await col.insertMany(data.stats);
+    return result.insertedCount;
 }
 
 async function search(seachTerm, page = 1, pageSize = 30){
@@ -73,4 +74,4 @@ module.exports = {
     remove,
     search,
     seed,
-}
+};

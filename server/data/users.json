@@ -7,7 +7,8 @@
 			"user": "RodoJML",
 			"password": "1234abc",
 			"photo": "/src/assets/users/7309681.jpg",
-			"token": ""
+			"token": "",
+			"role": "admin"
 		},
 		{
 			"id": 2,
@@ -16,7 +17,8 @@
 			"user": "JewPaltz",
 			"password": "1234abc",
 			"photo": "/src/assets/users/7309693.jpg",
-			"token": ""
+			"token": "",
+			"role": "admin"
 		},
 		{
 			"id": 3,
@@ -25,7 +27,8 @@
 			"user": "4pple",
 			"password": "1234abc",
 			"photo": "/src/assets/users/7309700.jpg",
-			"token": ""
+			"token": "",
+			"role": "user"
 		},
 		{
 			"id": 4,
@@ -34,7 +37,8 @@
 			"user": "GenericUser",
 			"password": "1234abc",
 			"photo": "https://www.getillustrations.com/photos/pack/video/55895-3D-AVATAR-ANIMATION.gif",
-			"token": ""
+			"token": "",
+			"role": "user"
 		}
 	]
 }

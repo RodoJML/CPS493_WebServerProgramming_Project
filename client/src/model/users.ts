@@ -15,3 +15,7 @@ export interface User{
 export function getUsers(): Promise<DataEnvelopeList<User>> {
     return api('/users');
 }
+
+export function addUser(user: User): Promise<DataEnvelope<User>> {
+    return api('/users');
+}

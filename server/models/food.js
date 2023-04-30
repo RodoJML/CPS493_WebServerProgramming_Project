@@ -18,7 +18,7 @@ async function getAll(){
 
 async function getById(id){
     const col = await collection();
-    const object = await col.findOne({ id: +id });
+    const object = await col.findOne({ _id: ObjectId(id) });
     return object;
 }
 
@@ -31,13 +31,13 @@ async function add(food){
 
 async function update(food){
     const col = await collection();
-    const result = await col.updateOne({ id: +food.id }, { $set: food }, { returnDocument: 'after' });
+    const result = await col.findOneAndUpdate({ _id: ObjectId(food._id) }, { $set: food }, { returnDocument: 'after' });
     return result.value;
 }
 
 async function remove(id){
     const col = await collection();
-    const result = await col.deleteOne({ id: +id });
+    const result = await col.deleteOne({ _id: ObjectId(id) });
     return result.deletedCount;
 }
 

@@ -2,7 +2,9 @@ const data = require('../data/users.json');
 // This will be used only to seed the DB now 
 
 const jwt = require('jsonwebtoken');
-const { connect, ObjectID } = require('./mongo');
+const { connect, ObjectId } = require('./mongo');
+const { env } = require('process');
+
 const COLLECTION_NAME = "users";
 
 async function collection() {
@@ -19,7 +21,7 @@ async function getAll(){
 
 async function getById(id){
     const col = await collection();
-    const object = await col.findOne({ id: +id });
+    const object = await col.findOne({ _id: ObjectId(id) });
     return object;
 }
 
@@ -32,19 +34,20 @@ async function add(user){
 
 async function update(user){
     const col = await collection();
-    const result = await col.updateOne({ id: +user.id }, { $set: user }, { returnDocument: 'after' });
+    const result = await col.findOneAndUpdate({ _id: ObjectId(user._id) }, { $set: user }, { returnDocument: 'after' });
     return result.value;
 }
 
 async function remove(id){
     const col = await collection();
-    const result = await col.deleteOne({ id: +id });
+    const result = await col.deleteOne({ _id: ObjectId(id) });
     return result.deletedCount;
 }
 
 async function seed(){
     const col = await collection();
-    await col.insertMany(data.users);
+    const result = await col.insertMany(data.users);
+    return result.insertedCount;
 }
 
 async function search(seachTerm, page = 1, pageSize = 30){
@@ -54,7 +57,7 @@ async function search(seachTerm, page = 1, pageSize = 30){
             { id: { $regex: searchTerm, $options: 'i'} },
             { name: { $regex: searchTerm, $options: 'i'}},
             { email: { $regex: searchTerm, $options: 'i'} },
-            { user: { $regex: searchTerm, $options: 'i'} }
+            { user: { $regex: searchTerm, $options: 'i'} },
         ]
     }
 
@@ -122,5 +125,6 @@ module.exports = {
     seed,
     login,
     generateTokenAsync,
-    verifyTokenAsync
+    verifyTokenAsync,
+    oAuthLogin
 }

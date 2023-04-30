@@ -7,6 +7,7 @@ const path = require('path');
 const food = require('./controllers/food');
 const users = require('./controllers/users');
 const stats = require('./controllers/stats');
+const { requireLogin, parseAuthorizationHeader } = require('./middleware/authorization');
 const app = express();
 
 // Socket 
@@ -19,18 +20,22 @@ app
     .use(express.static(path.join(__dirname, '../client/dist')))
     .use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*')
-        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
         res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+        if (req.method === 'OPTIONS') {
+            res.sendStatus(200)
+        }
         next()
     })
+    .use(parseAuthorizationHeader)
 
 // Actions s
 app
     .get('/api/v1/', (req, res) => { res.send('Hello World! From Express') })
-    .use('/api/v1/food', food)
+    .use('/api/v1/food', requireLogin(), food)
+    .use('/api/v1/stats', requireLogin(), stats)
     .use('/api/v1/users', users)
-    .use('/api/v1/stats', stats)
-
+    
 // Catch all
 app
     .get('*', (req, res) => { res.sendFile(path.join(__dirname, '../client/dist/index.html')) })
