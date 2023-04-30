@@ -4,7 +4,6 @@ import Food from '../views/Food.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Admin from '../views/Admin.vue'
 import Meals from '../views/Meals.vue'
-import Friends from '../views/Friends.vue'
 import SecureRoute from '../views/SecureRoute.vue'
 import { useSession } from '../model/session';
 
@@ -30,6 +29,9 @@ function secureRoute(to: RouteLocationNormalized, from: RouteLocationNormalized,
   if(session.user){
     next()
   } else {
+    if(!session.redirectUrl && to.path != '/secure'){
+      session.redirectUrl = to.fullPath;
+    }
     next('/secure')
   }
 }

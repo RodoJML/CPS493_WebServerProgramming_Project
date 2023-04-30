@@ -1,7 +1,7 @@
 const { MongoClient , ObjectId } = require('mongodb');
 
 const url = process.env.MONGO_URL ?? "";
-const DB_Name = process.env.DB_NAME ?? "";
+const DB_Name = process.env.DB_NAME ?? 'CalC';
 
 const client = new MongoClient(url);
 
