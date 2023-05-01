@@ -2,7 +2,8 @@
 import NavBar from './components/NavBar.vue';
 import { RouterView } from 'vue-router';
 
-require("@/assets/Donut.png");
+
+require(src="@/assets/Donut.png");
 require("@/assets/Drumstick.png");
 require("@/assets/eating.png");
 require("@/assets/fnd.png");
