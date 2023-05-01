@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { getStats, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
 import { myRecentCalories } from '@/model/stats';
-import { readUser } from '@/model/stats';
 
 const stats = ref<Stats[]>([]);
 getStats().then((result) => {
@@ -36,17 +35,7 @@ const session = useSession();
                 <div class="box" v-if="session.user?.user">
                     <div class="wrapper">
                         <strong>Recent Calories</strong>
-                        {{ readUser(session.user?.user) }}
                         <div class="title">{{ myRecentCalories }}</div>(*See My Meals tab for details)
-                    </div>
-                </div>
-
-                <div v-for="stat in stats">
-                    <div class="box" v-if="stat.user == session.user?.user && stat.type != 'Daily' && stat.type != ' '">
-                        <div class="wrapper">
-                            <strong>{{ stat.type }} Calories</strong> 
-                            <div class="title non-dynamic">{{ stat.calories }}</div>(Not Dynamic)
-                        </div>
                     </div>
                 </div>
 
