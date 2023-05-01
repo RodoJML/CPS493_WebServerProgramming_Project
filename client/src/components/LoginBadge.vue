@@ -51,7 +51,7 @@
                     Test User
                     <br>
                     <strong>email: </strong><br>menesesr1@newpaltz.edu
-                    <strong>passw: </strong><br>123abc
+                    <strong>passw: </strong><br>1234abc
                 </p>
                 
             </div>
