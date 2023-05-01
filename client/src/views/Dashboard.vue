@@ -35,7 +35,7 @@ const session = useSession();
                 <div class="box" v-if="session.user?.user">
                     <div class="wrapper">
                         <strong>Recent Calories</strong>
-                        <div class="title">{{ myRecentCalories }}</div>(*See My Meals tab for details)
+                        <div class="title">{{ myRecentCalories }}</div>(*Calories added on my meals during this session)
                     </div>
                 </div>
 
