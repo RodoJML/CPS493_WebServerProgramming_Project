@@ -7,7 +7,8 @@
   "author": "Rodolfo Meneses Leal",
   "scripts": {
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js --watch server"
+    "dev": "nodemon server/index.js --watch server",
+    "build": "npm i -ws && npm run build -ws"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "workspaces": ["client"]
 }
