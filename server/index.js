@@ -7,6 +7,7 @@ const path = require('path');
 const food = require('./controllers/food');
 const users = require('./controllers/users');
 const stats = require('./controllers/stats');
+const restaurants = require('./controllers/restaurants');
 const { requireLogin, parseAuthorizationHeader } = require('./middleware/authorization');
 const app = express();
 
@@ -34,7 +35,8 @@ app
     .get('/api/v1/', (req, res) => { res.send('Hello World! From Express') })
     .use('/api/v1/food', requireLogin(), food)
     .use('/api/v1/stats', requireLogin(), stats)
-    .use('/api/v1/users', users)
+    .use('/api/v1/restaurants', requireLogin(), restaurants)
+    .use('/api/v1/users', users),
     
 // Catch all
 app

@@ -1,0 +1,24 @@
+{
+    "restaurants": [
+        {
+            "name": "Dining Hall"
+        },
+        {
+            "name": "Mac Donalds"
+        },
+        {
+            "name": "Burger King"
+        },
+        {
+            "name": "Caffe Macs"
+        },
+        {
+            "name": "Barnea Bistro"
+        },
+        {
+            "name": "Reserve Cut"
+        }],
+    "total": 6,
+    "skip": 0,
+    "limit": 30
+}
