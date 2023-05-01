@@ -33,7 +33,7 @@ function toggleCalCard() {
                     <div class="media">
                         <div class="media-left">
                             <figure class="image is-96x96">
-                                <img :src="require(foodItem.thumbnail)" alt="foodImage">
+                                <img :src="foodItem.thumbnail" alt="foodImage">
                             </figure>
                         </div>
                         <div class="media-content">
