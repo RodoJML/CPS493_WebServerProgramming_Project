@@ -3,6 +3,7 @@ import type { DataEnvelope, DataEnvelopeList } from './myFetch';
 import { computed, ref, reactive } from 'vue';
 import { useSession } from './session';
 
+// Feedback may be related to oassing user as parameter here 
 const session = useSession();
 
 export interface Stats {
@@ -70,14 +71,9 @@ getStats().then((result) => {
     stats.value = result.data;
 });
 
-const currentUser = reactive({ user1: null as string | null })
-export function readUser(user: string) {
-    currentUser.user1 = user;
-}
-
 export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
-export const filteredStats = computed(() => stats.value.filter((stat) => stat.type == 'Daily' && stat.user == currentUser.user1));
-export const myRecentCalories = computed(() => filteredStats.value.reduce((total, calorieData) => total + calorieData.calories, 0));
+export const filteredStats = computed(() => stats.value.filter((stat) => stat.type == 'Daily' && stat.user == session.user?.user));
+export const myRecentCalories = computed(() => filteredStats.value.reduce((total, calorieData) => total + +calorieData.calories, 0));
 
 
 
