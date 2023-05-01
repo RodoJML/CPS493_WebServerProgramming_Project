@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getStats, addStat, removeStat, type Stats } from '@/model/stats';
+import { getRestaurants, type Restaurant } from '@/model/restaurants';
 import { useSession } from '@/model/session';
 import { useRouter } from 'vue-router';
 
 const stats = ref<Stats[]>([]);
+const restaurants = ref<Restaurant[]>([]);
+
 getStats().then((result) => {
     stats.value = result.data;
 });
+
+
 
 const session = useSession();
 const router = useRouter();
