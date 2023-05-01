@@ -20,7 +20,7 @@ getUsers().then((loadedData) => {
                 <li><a href="/admin">Users</a></li>
             </ul>
         </nav>
-        <button class="button is-warning is-focused">+ Add User</button>
+        
         <table class="table is-fullwidth">
             <thead>
                 <tr>

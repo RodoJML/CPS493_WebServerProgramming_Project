@@ -61,7 +61,7 @@ export function useLogout() {
 
     return function () {
         session.user = null;
-        router.push('/login');
+        router.push('/');
     }
 }
 

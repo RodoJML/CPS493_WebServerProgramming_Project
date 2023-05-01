@@ -1,6 +1,8 @@
 import { api } from './session';
 import type { DataEnvelope, DataEnvelopeList } from './myFetch';
+import { useSession } from './session';
 
+ const session = useSession();
 export interface User{
     id?: number;
     name?: string;
@@ -12,7 +14,7 @@ export interface User{
 }
 
 export function getUsers(): Promise<DataEnvelopeList<User>> {
-    return api('/users');
+    return api('/users', null, 'GET', { 'Authorization': 'Bearer ' + session.user?.token});
 }
 
 export function addUser(user: User): Promise<DataEnvelope<User>> {
