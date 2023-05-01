@@ -10,6 +10,11 @@ import { RouterView } from 'vue-router';
       <RouterView />
     </div>
   </header>
+
+  <div v-if="false">
+    <img src="@/assets/*"><img>
+  </div>
+  
 </template>
 
 <style scoped>
