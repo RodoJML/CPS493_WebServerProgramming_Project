@@ -5,15 +5,16 @@
     import type { User } from '@/model/users';
     import { getUsers } from '@/model/users';
 
-    const session = useSession();
-    const logout = useLogout();
-    const users = ref<User[]>([]);
-
     var loginUser = {
         email: '',
         password: ''
     } as User;
-    
+
+    const session = useSession();
+    const logout = useLogout();
+    const login = useLogin(loginUser);
+    const users = ref<User[]>([]);
+
     getUsers().then((loadedData) => {
         users.value = loadedData.data;
     });
@@ -43,7 +44,7 @@
                 <label class="username">Password</label>
                 <input v-model="loginUser.password" type="text" class="password">
 
-                <button class="button is-warning is-focused" @click="() => useLogin(loginUser)">Login</button>
+                <button class="button is-warning is-focused" @click="login">Login</button>
 
                 <p>
                     <br><br>
