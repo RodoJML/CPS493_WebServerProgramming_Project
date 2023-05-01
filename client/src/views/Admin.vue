@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getUsers } from '@/model/session';
-import type { User } from '@/model/session';
+import { getUsers } from '@/model/users';
+import type { User } from '@/model/users';
 
 const users = ref<User[]>([]);
 

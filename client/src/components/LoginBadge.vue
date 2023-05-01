@@ -1,12 +1,18 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { useSession, useLogin, useLogout, getUsers} from '@/model/session';
+    import { useSession, useLogin, useLogout} from '@/model/session';
     import { resetCalc } from '@/model/stats';
-    import type { User } from '@/model/session';
+    import type { User } from '@/model/users';
+    import { getUsers } from '@/model/users';
 
     const session = useSession();
     const logout = useLogout();
     const users = ref<User[]>([]);
+
+    var loginUser = {
+        email: '',
+        password: ''
+    } as User;
     
     getUsers().then((loadedData) => {
         users.value = loadedData.data;
@@ -22,8 +28,6 @@
         <a @click="logout" @mouseup="resetCalc">
             <i class="fa-solid fa-right-from-bracket"></i>
         </a>
-        
-
     </div>
 
     <div class="navbar-item has-dropdown is-hoverable" v-else>
@@ -32,11 +36,29 @@
         </a>
 
         <div class="navbar-dropdown">
-            <a class="navbar-item" v-for="user in users">
+            <div class="loginpane">
+                <label class="username">Email</label>
+                <input v-model="loginUser.email" type="text" class="email">
+
+                <label class="username">Password</label>
+                <input v-model="loginUser.password" type="text" class="password">
+
+                <button class="button is-warning is-focused" @click="() => useLogin(loginUser)">Login</button>
+
+                <p>
+                    <br><br>
+                    Test User
+                    <br>
+                    <strong>email: </strong><br>menesesr1@newpaltz.edu
+                    <strong>passw: </strong><br>123abc
+                </p>
+                
+            </div>
+            <!-- <a class="navbar-item" v-for="user in users">
                 <a @click="useLogin(user)">
                     {{user.name}}
                 </a>
-            </a>
+            </a> -->
         </div>
     </div>
 
@@ -53,6 +75,14 @@
 .fa-right-from-bracket {
     margin-left: 1rem;
     color: sienna;
+}
+
+.loginpane {
+    margin: 1rem;
+}
+
+.button {
+    margin-top: 1rem;
 }
 
 
