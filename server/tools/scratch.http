@@ -28,12 +28,12 @@ Content-Type: application/json
 // The @name is required so the variable @jwt knows where to get the token from.
 
 ###
-GET http://localhost:{{port}}/api/v1/products?page=1&pageSize=30
+GET http://localhost:{{port}}/api/v1/users
 Authorization: Bearer {{jwt}}
 
 ###
 POST http://127.0.0.1:3000/api/v1/restaurants/seed
-
+Authorization: Bearer {{jwt}}
 
 // The authorization header is required to authenticate the request.
 // this is now required for all requests

@@ -48,7 +48,7 @@ export function useLogin(user: User) {
             addMessage('Invalid username or password', 'danger');
             return;
         }
-
+        
         // This doesnt yell at me on user? because is smart enough to see the if statement above
         session.user.token = response.data.token;
         router.push(session.redirectUrl ?? '/');
