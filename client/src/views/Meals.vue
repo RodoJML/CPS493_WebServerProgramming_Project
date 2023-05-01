@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getStats, addStat, removeStat, type Stats } from '@/model/stats';
-import { getRestaurants, type Restaurant } from '@/model/restaurants';
+import { getRestaurants} from '@/model/restaurants';
+import type { Restaurant } from '@/model/restaurants';
 import { useSession } from '@/model/session';
 import { useRouter } from 'vue-router';
 
@@ -12,6 +13,9 @@ getStats().then((result) => {
     stats.value = result.data;
 });
 
+getRestaurants().then((result) => {
+    restaurants.value = result.data;
+});
 
 
 const session = useSession();
@@ -70,12 +74,7 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
                                 <div class="control">
                                     <div class="select is-warning">
                                         <select v-model="newStat.restaurant">
-                                            <option>Dining Hall</option>
-                                            <option>Mac Donalds</option>
-                                            <option>Burger King</option>
-                                            <option>Caffe Macs</option>
-                                            <option>Barnea Bistro</option>
-                                            <option>Reserve Cut</option>
+                                            <option v-for="restaurant in restaurants">{{restaurant.name}}</option>
                                         </select>
                                     </div>
                                 </div>
