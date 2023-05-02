@@ -113,31 +113,41 @@
 
 **STEP 11**
 
-STEPS TO IMPLEMENT GOOGLE APIs
+------------------------------------------------------------------------
+
+
+**STEPS TO IMPLEMENT GOOGLE APIs**
 
 **STEP1**
+
         Go to https://console.cloud.google.com/apis/library
         Select or create a new project if you dont have one.
 
 **STEP2**
+
         Lookup the API you need in the API library and "enable" it
 
 **STEP3**
+
         Setup the API and you should get a secret.json file from Google
 
 **STEP3**
+
         Go to "API and Services" >> "Credentials" and generate an API KEY 
 
 **STEP4**
+
         Go to "API and Services" >> "Credentials" and generate an API KEY 
 
 **STEP5**
+
         On your client workspace/folder include the following into your 
         ".env.development file."
         VITE_GOOGLE_CLIENT_ID="youridherethiscomesfromthesecretjsonfile"
         VITE_GOOGLE_API_KEY="thiskeyisgeneratedfromcredentialspaneinapi&srvs"
 
 **STEP6**
+
         In order for your VSCode to have typecheck for your google functions
         add these into your "devdependencies" of the "package.json"
         "@types/gapi.client": "1.0.5",
