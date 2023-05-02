@@ -118,34 +118,34 @@
 
 **STEPS TO IMPLEMENT GOOGLE APIs**
 
-**STEP1**
+**STEP 1**
 
         Go to https://console.cloud.google.com/apis/library
         Select or create a new project if you dont have one.
 
-**STEP2**
+**STEP 2**
 
         Lookup the API you need in the API library and "enable" it
 
-**STEP3**
+**STEP 3**
 
         Setup the API and you should get a secret.json file from Google
 
-**STEP3**
+**STEP 3**
 
         Go to "API and Services" >> "Credentials" and generate an API KEY 
 
-**STEP4**
+**STEP 4**
 
         On your client workspace/folder include the following into your 
         ".env.development file."
         VITE_GOOGLE_CLIENT_ID="youridherethiscomesfromthesecretjsonfile"
         VITE_GOOGLE_API_KEY="thiskeyisgeneratedfromcredentialspaneinapi&srvs"
 
-**STEP5**
+**STEP 5**
 
         In order for your VSCode to have typecheck for your google functions
-        add these into your "devdependencies" of the "package.json"
+        add these into your "devdependencies" of the "package.json" in BOTH root and client
         "@types/gapi.client": "1.0.5",
         "@types/google.accounts": "0.0.7",
         "@types/google.maps": "^3.52.6"
@@ -153,7 +153,7 @@
         In your "client" file "ts.config" include the following under "include":
         "../node_modules/**/*.d.ts"
 
-        
+**STEP 6** 
 
         
 
