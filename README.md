@@ -155,6 +155,27 @@
 
 **STEP 6** 
 
+        On the "myFetch.ts" add the following function
+
+        export function loadScript(url: string, id: string){
+                return new Promise((resolve, reject) => {
+                if(document.getElementById(id)) return resolve(true);
+        
+                const script = document.createElement('script');
+                script.src = url;
+                script.id = id;
+                script.onload = () => resolve(true);
+                script.onerror = () => reject(false);
+                document.body.appendChild(script);
+                });
+        }
+
+**IMPORTANT NOTE**
+
+        Implementing the API this way allows us to have the API and script together in the same component
+        we are using it. So it's easier later for debugging, also by adding "async" we can use "await" to
+        make sure the script is loaded before we use it and avoid errors.
+
         
 
 
