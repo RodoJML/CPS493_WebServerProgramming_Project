@@ -150,6 +150,11 @@
         "@types/google.accounts": "0.0.7",
         "@types/google.maps": "^3.52.6"
 
+        In your "client" file "ts.config" include the following under "include":
+        "../node_modules/**/*.d.ts"
+
+        
+
         
 
 
