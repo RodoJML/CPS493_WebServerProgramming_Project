@@ -176,6 +176,9 @@
         we are using it. So it's easier later for debugging, also by adding "async" we can use "await" to
         make sure the script is loaded before we use it and avoid errors.
 
+**STEP 7**
+        
+
         
 
 
