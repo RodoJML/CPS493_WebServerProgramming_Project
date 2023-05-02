@@ -137,16 +137,12 @@
 
 **STEP4**
 
-        Go to "API and Services" >> "Credentials" and generate an API KEY 
-
-**STEP5**
-
         On your client workspace/folder include the following into your 
         ".env.development file."
         VITE_GOOGLE_CLIENT_ID="youridherethiscomesfromthesecretjsonfile"
         VITE_GOOGLE_API_KEY="thiskeyisgeneratedfromcredentialspaneinapi&srvs"
 
-**STEP6**
+**STEP5**
 
         In order for your VSCode to have typecheck for your google functions
         add these into your "devdependencies" of the "package.json"
