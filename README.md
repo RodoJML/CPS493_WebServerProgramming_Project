@@ -113,10 +113,7 @@
 
 **STEP 11**
 
-------------------------------------------------------------------------
-
-
-**STEPS TO IMPLEMENT GOOGLE APIs**
+STEPS TO IMPLEMENT GOOGLE APIs
 
 **STEP1**
         Go to https://console.cloud.google.com/apis/library
