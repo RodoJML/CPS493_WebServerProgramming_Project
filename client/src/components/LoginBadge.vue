@@ -44,7 +44,8 @@ async function googleLogin() {
                 name: me.names[0].displayName,
                 email: me.emailAddresses[0].value,
                 photo: me.photos[0].url,
-                user: me.resourceName
+                user: me.resourceName,
+                token: tokenResponse.access_token
             } as User;
 
             thirdPartyLogin(googleuser);
