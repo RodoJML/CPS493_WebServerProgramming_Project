@@ -65,20 +65,24 @@ export function useLogout() {
     }
 }
 
-export function useLoginThirdParty(user: User){
-    const router = useRouter();
-    
-    return function(){
-        session.user = user;
 
+export function thirdPartyLogin(user: User) {
+    const router = useRouter();
+
+    return async function () {
+
+        const response = await api('/users/loginGoogle', user);
+        session.user = response.data.user;
+
+        if(!session.user){
+            addMessage('Invalid username or password', 'danger');
+            return;
+        }
+
+        session.user.token = response.data.token;
         router.push(session.redirectUrl ?? '/');
         session.redirectUrl = null;
     }
-}
-
-
-export function thirdPartyLogin(user: User) {
-
 }
 
 
