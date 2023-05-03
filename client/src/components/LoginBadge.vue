@@ -31,16 +31,8 @@ async function googleLogin() {
                 null, undefined, {
                 "Authorization": "Bearer " + tokenResponse.access_token
             });
-            
-            
 
-            const user = {
-                name: me.names[0].displayName,
-                email: me.emailAddresses[0].value,
-                photo: me.photos[0].url
-            } as User;
-
-            console.log("Hereee:  " + user);
+            console.log("Hereee:  " + me.names[0].value + me.emailAddresses[0].value);
         },
     });
     client.requestAccessToken();
