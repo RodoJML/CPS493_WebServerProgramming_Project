@@ -69,6 +69,14 @@ router
         }).catch(next);
     })
 
+    .post('/loginGoogle', (req, res, next) => {
+        model.loginGoogle(req.body)
+        .then( result => {
+            const data = { data: result, isSuccess: true };
+            res.send(data)
+        }).catch(next);
+    })
+
     .post('/oAuthLogin', (req, res, next) => {
         model.oAuthLogin(req.body.provider, req.body.accessToken)
             .then(x => {

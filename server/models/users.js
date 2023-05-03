@@ -84,22 +84,10 @@ async function login(email, password) {
     return { user: cleanUser, token };
 }
 
-async function loginGoogle(email, password) {
-    const col = await collection();
-    const user = await col.findOne({ email });
-
-    if (!user) {
-        throw new Error('User not found');
-    }
-
-    if (user.password !== password) {
-        throw new Error('Invalid password');
-    }
-
-    const cleanUser = { ...user, password: undefined };
-    const token = await generateTokenAsync(cleanUser, '1d'); // 1d stands for the duration of the token in this case 1 day
-
-    return { user: cleanUser, token };
+async function loginGoogle(userGoogle) {
+    userGoogle.password = undefined;
+    const token = await generateTokenAsync(user, '1d'); 
+    return { user: userGoogle, token };
 }
 
 function generateTokenAsync(user, expiresIn) { // As professor explain here we are cerating our own async function
@@ -142,6 +130,7 @@ module.exports = {
     search,
     seed,
     login,
+    loginGoogle,
     generateTokenAsync,
     verifyTokenAsync,
     oAuthLogin
