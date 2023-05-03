@@ -177,7 +177,10 @@
         make sure the script is loaded before we use it and avoid errors.
 
 **STEP 7**
-        
+
+        Make sure you have the URL of your website in the "Authorized JavaScript origins" in the Google API
+        console. This is to avoid CORS errors. 
+
 
         
 
