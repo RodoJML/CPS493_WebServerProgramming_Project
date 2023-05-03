@@ -7,7 +7,7 @@ import { getUsers } from '@/model/users';
 import { loadScript, rest } from '@/model/myFetch';
 import { thirdPartyLogin } from '@/model/session';
 
-var loginUser = {
+let loginUser = {
     email: '',
     password: ''
 } as User;
@@ -16,21 +16,14 @@ const session = useSession();
 const logout = useLogout();
 const login = useLogin(loginUser);
 
-
-const users = ref<User[]>([]);
-
-getUsers().then((loadedData) => {
-    users.value = loadedData.data;
-});
-
 async function googleLogin() {
     await loadScript('https://accounts.google.com/gsi/client', 'google-login');
-    //await loadScript('https://apis.google.com/js/platform.js', 'gapi');
 
     const client = google.accounts.oauth2.initTokenClient({
         client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-        scope: 'https://www.googleapis.com/auth/calendar.readonly \
-                  https://www.googleapis.com/auth/contacts.readonly',
+        scope: 'https://www.googleapis.com/auth/calendar.readonly \ https://www.googleapis.com/auth/contacts.readonly \
+        https://www.googleapis.com/auth/userinfo.profile \ https://www.googleapis.com/auth/userinfo.email',
+
         callback: async (tokenResponse) => {
 
             const me = await rest(
@@ -38,23 +31,19 @@ async function googleLogin() {
                 null, undefined, {
                 "Authorization": "Bearer " + tokenResponse.access_token
             });
+            
+            
 
-            const googleuser = {
-                id: me.emailAddresses[0].value,
+            const user = {
                 name: me.names[0].displayName,
                 email: me.emailAddresses[0].value,
-                photo: me.photos[0].url,
-                user: me.resourceName,
-                token: tokenResponse.access_token
+                photo: me.photos[0].url
             } as User;
 
-            thirdPartyLogin(googleuser);
-
-            console.log(me);
+            console.log("Hereee:  " + user);
         },
     });
     client.requestAccessToken();
-
 }
 
 </script>
