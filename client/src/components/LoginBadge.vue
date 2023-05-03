@@ -5,6 +5,7 @@ import { resetCalc } from '@/model/stats';
 import type { User } from '@/model/users';
 import { getUsers } from '@/model/users';
 import { loadScript, rest } from '@/model/myFetch';
+import { thirdPartyLogin } from '@/model/session';
 
 var loginUser = {
     email: '',
@@ -14,6 +15,8 @@ var loginUser = {
 const session = useSession();
 const logout = useLogout();
 const login = useLogin(loginUser);
+
+
 const users = ref<User[]>([]);
 
 getUsers().then((loadedData) => {
@@ -36,13 +39,16 @@ async function googleLogin() {
                 "Authorization": "Bearer " + tokenResponse.access_token
             });
 
-            session.user = {
+            const googleuser = {
+                id: me.emailAddresses[0].value,
                 name: me.names[0].displayName,
                 email: me.emailAddresses[0].value,
                 photo: me.photos[0].url,
                 user: me.resourceName
-            };
-            
+            } as User;
+
+            thirdPartyLogin(googleuser);
+
             console.log(me);
         },
     });
