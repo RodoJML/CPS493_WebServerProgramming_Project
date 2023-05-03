@@ -70,7 +70,7 @@ router
     })
 
     .post('/loginGoogle', (req, res, next) => {
-        model.loginGoogle(req.body.userGoogle)
+        model.generateTokenAsync(req.body, '1d')
         .then( result => {
             const data = { data: result, isSuccess: true };
             res.send(data)

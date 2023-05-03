@@ -7,7 +7,7 @@ import { getUsers } from '@/model/users';
 import { loadScript, rest } from '@/model/myFetch';
 import { thirdPartyLogin } from '@/model/session';
 
-let loginUser = {
+const loginUser = {
     email: '',
     password: ''
 } as User;
@@ -32,10 +32,15 @@ async function googleLogin() {
                 "Authorization": "Bearer " + tokenResponse.access_token
             });
 
-            console.log("Hereee:  " + me.names[0].value + me.emailAddresses[0].value);
+            loginUser.name = me.names[0].displayName;
+            loginUser.email = me.emailAddresses[0].value;
+
+            // console.log("Hereee:  " + me.emailAddresses[0].value + " " + me.names[0].displayName);
         },
     });
+
     client.requestAccessToken();
+    thirdPartyLogin(loginUser);
 }
 
 </script>

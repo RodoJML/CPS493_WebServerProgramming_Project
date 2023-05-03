@@ -84,12 +84,6 @@ async function login(email, password) {
     return { user: cleanUser, token };
 }
 
-async function loginGoogle(userGoogle) {
-    userGoogle.password = undefined;
-    const token = await generateTokenAsync(user, '1d'); 
-    return { user: userGoogle, token };
-}
-
 function generateTokenAsync(user, expiresIn) { // As professor explain here we are cerating our own async function
     return new Promise((resolve, reject) => {
         jwt.sign(user, process.env.JWT_SECRET ?? "", { expiresIn }, (err, token) => {
@@ -130,7 +124,6 @@ module.exports = {
     search,
     seed,
     login,
-    loginGoogle,
     generateTokenAsync,
     verifyTokenAsync,
     oAuthLogin

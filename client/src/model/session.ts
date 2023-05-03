@@ -72,14 +72,9 @@ export function thirdPartyLogin(user: User) {
     return async function () {
 
         const response = await api('/users/loginGoogle', user);
-        session.user = response.data.user;
-
-        if(!session.user){
-            addMessage('Invalid username or password', 'danger');
-            return;
-        }
-
+        session.user = user;
         session.user.token = response.data.token;
+        
         router.push(session.redirectUrl ?? '/');
         session.redirectUrl = null;
     }
