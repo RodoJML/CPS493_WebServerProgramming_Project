@@ -65,16 +65,20 @@ export function useLogout() {
     }
 }
 
+export function useLoginThirdParty(user: User){
+    const router = useRouter();
+    
+    return function(){
+        session.user = user;
+
+        router.push(session.redirectUrl ?? '/');
+        session.redirectUrl = null;
+    }
+}
+
 
 export function thirdPartyLogin(user: User) {
 
-    const router = useRouter();
-
-    return function(){
-        session.user = user;
-    }
-    router.push(session.redirectUrl ?? "/");
-    session.redirectUrl = null;
 }
 
 
