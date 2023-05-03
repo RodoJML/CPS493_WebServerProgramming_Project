@@ -65,6 +65,19 @@ export function useLogout() {
     }
 }
 
+
+export function thirdPartyLogin(user: User) {
+
+    const router = useRouter();
+
+    return function(){
+        session.user = user;
+    }
+    router.push(session.redirectUrl ?? "/");
+    session.redirectUrl = null;
+}
+
+
 export function addMessage(msg: string, type: 'success' | 'danger' | 'warning' | 'info') {
     session.messages.push({ msg, type });
 }
