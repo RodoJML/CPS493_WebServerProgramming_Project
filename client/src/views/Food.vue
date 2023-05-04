@@ -17,6 +17,8 @@ const isCalCardActive = ref(false);
 function toggleCalCard() {
     isCalCardActive.value = !isCalCardActive.value;
 }
+let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
+
 </script>
 
 <template>
@@ -33,7 +35,7 @@ function toggleCalCard() {
                     <div class="media">
                         <div class="media-left">
                             <figure class="image is-96x96">
-                                <img :src="foodItem.thumbnail" alt="foodImage">
+                                <img :src="staticFolder + foodItem.thumbnail" alt="foodImage">
                             </figure>
                         </div>
                         <div class="media-content">

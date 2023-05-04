@@ -1,14 +1,13 @@
 <script setup lang="ts">
 // Here we add the imports 
-let str = import.meta.env.VITE_SERVER_URL;
-str = str + "/static/steve.png";
+let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
 </script>
 
 <template>
   <div class="columns">
     <div class="column">
       <div class="wrapper">
-        <img class="logo" :src=str alt="foodLogo" width="28" height="28">
+        <!-- <img class="logo" :src="str + 'steve.png'" alt="foodLogo" width="28" height="28"> -->
         <div class="title">Welcome!</div>
         <div class="text">
           On this application you will be able to count your calories, for a healthier life.
