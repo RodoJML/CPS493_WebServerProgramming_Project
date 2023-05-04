@@ -4,13 +4,14 @@ import { useSession, useLogin, useLogout } from '@/model/session';
 import { resetCalc } from '@/model/stats';
 import type { User } from '@/model/users';
 import { loadScript, rest } from '@/model/myFetch';
-import { thirdPartyLogin } from '@/model/session';
+import { useThirdPartyLogin } from '@/model/session';
 
 const loginUser = {} as User;
 
 const session = useSession();
 const logout = useLogout();
-const login = useLogin(loginUser);
+const login = useLogin();
+const thirdPartyLogin = useThirdPartyLogin();
 
 const providerData = {
         provider: "",
@@ -28,19 +29,16 @@ async function googleLogin() {
 
         // "me" is repeated here and on the server model, should I remove one?
         callback: async (tokenResponse) => {
-            const me = await rest(
-                'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses',
-                null, undefined, {
-                "Authorization": "Bearer " + tokenResponse.access_token
+
+            thirdPartyLogin({
+                provider: "google", 
+                accessToken: tokenResponse.access_token
             });
+            
         }
 
     });
     client.requestAccessToken();
-
-    providerData.provider = "google";
-    providerData.accesToken = client.requestAccessToken();
-    thirdPartyLogin(providerData);
 }
 
 </script>
@@ -68,7 +66,7 @@ async function googleLogin() {
                 <label class="username">Password</label>
                 <input v-model="loginUser.password" type="text" class="password">
 
-                <button class="button is-warning is-focused" @click="login">
+                <button class="button is-warning is-focused" @click="login(loginUser)">
                     <i class="jwticon">
                         <img
                             src="https://vegibit.com/wp-content/uploads/2018/07/JSON-Web-Token-Authentication-With-Node.png" />

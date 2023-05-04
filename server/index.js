@@ -19,6 +19,7 @@ const port = process.env.PORT || 3000;
 app
     .use(express.json())
     .use(express.static(path.join(__dirname, '../client/dist')))
+    .use("/static",express.static(path.join(__dirname, '/static')))
     .use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', '*')
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')

@@ -120,8 +120,9 @@ async function oAuthLogin(provider, accessToken) {
                     headers: {
                         "Authorization": "Bearer " + accessToken
                     }
-                });
+                }).then(res => res.json());
 
+                console.log(me);
             const user = await col.findOne({ email: me.emailAddresses[0].value });
 
             if (!user) {

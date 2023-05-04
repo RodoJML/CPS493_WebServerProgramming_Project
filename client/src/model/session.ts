@@ -36,10 +36,10 @@ export function api(url: string, data?: any, method?: string, headers?: any) {
 }
 
 
-export function useLogin(user: User) {
+export function useLogin() {
     const router = useRouter();
 
-    return async function () {
+    return async function (user: User) {
 
         const response = await api('/users/login', user);
         session.user = response.data.user;
@@ -65,12 +65,16 @@ export function useLogout() {
     }
 }
 
+export interface ProviderData {
+    provider: string;
+    accessToken: string;
+}
 
-export function thirdPartyLogin(providerData: any) {
+export function useThirdPartyLogin() {
     const router = useRouter();
     // session.user = user;
     
-    return async function () {
+    return async function (providerData: ProviderData) {
 
         const response = await api('/users/thirdpartylogin', providerData);
         session.user = response.data.user;

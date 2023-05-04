@@ -5,7 +5,11 @@ import { useSession } from './session';
 
 // Feedback may be related to oassing user as parameter here 
 const session = useSession();
+// const stats = ref<Stats[]>([]);
 
+// getStats().then((result) => {
+//     stats.value = result.data;
+// });
 export interface Stats {
     _id: string;
     user?: string;
@@ -66,14 +70,9 @@ export function resetCalc(){
 }
 
 // ---------- Computing -----------
-const stats = ref<Stats[]>([]);
-getStats().then((result) => {
-    stats.value = result.data;
-});
+
 
 export const calcTotal = computed(() => calculatorData.value.reduce((total, calorieData) => total + calorieData.calories, 0));
-export const filteredStats = computed(() => stats.value.filter((stat) => stat.type == 'Daily' && stat.user == session.user?.user));
-export const myRecentCalories = computed(() => filteredStats.value.reduce((total, calorieData) => total + +calorieData.calories, 0));
 
 
 
