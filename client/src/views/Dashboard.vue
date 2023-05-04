@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { getStats, type Stats } from '@/model/stats';
 import { useSession } from '@/model/session';
-import { myRecentCalories } from '@/model/stats';
+import { getStats, type Stats } from '@/model/stats';
+import { ref } from 'vue';
+import { computed } from 'vue';
+
+const session = useSession();
 
 const stats = ref<Stats[]>([]);
+
 getStats().then((result) => {
     stats.value = result.data;
 });
 
-const session = useSession();
+const filteredStats = computed(() => stats.value.filter((stat) => stat.type == 'Daily' && stat.user == session.user?.user));
+const myRecentCalories = computed(() => filteredStats.value.reduce((total, calorieData) => total + (+calorieData.calories), 0));
 
 </script>
 

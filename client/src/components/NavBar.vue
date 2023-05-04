@@ -31,7 +31,7 @@ function toggleMenu() {
             <div class="navbar-menu" :class="{'is-active': isMenuActive}">
                 <div class="navbar-start">
                     
-                    <RouterLink to="/dashboard" class="navbar-item">
+                    <RouterLink to="/dashboard" class="navbar-item" @click="">
                         <i class="fa-solid fa-gauge"></i>&nbsp
                         Dashboard
                     </RouterLink>
