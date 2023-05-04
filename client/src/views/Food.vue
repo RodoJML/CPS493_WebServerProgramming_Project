@@ -19,6 +19,7 @@ function toggleCalCard() {
 }
 
 let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
+
 </script>
 
 <template>
