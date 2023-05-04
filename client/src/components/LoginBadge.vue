@@ -65,7 +65,7 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                 <input v-model="loginUser.email" type="text" class="email">
 
                 <label class="username">Password</label>
-                <input v-model="loginUser.password" type="text" class="password">
+                <input v-model="loginUser.password" type="password" class="password">
 
                 <button class="button is-warning is-focused" @click="login(loginUser)">
                     <i class="jwticon">
