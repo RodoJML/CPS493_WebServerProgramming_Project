@@ -108,14 +108,14 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
 
                     <div class="card-image">
                         <figure class="image is-3by1">
-                            <img v-bind:src="'/src/assets/restaurants/' + stat.restaurant + '.jpg'" alt="Placeholder image">
+                            <img v-bind:src="restaurantsFolder + stat.restaurant + '.jpg'" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
                         <div class="media">
                             <div class="media-left">
                                 <figure class="image is-64x64">
-                                    <img class="userImage" :src="stat.photo" alt="Placeholder image">
+                                    <img class="userImage" :src="usersFolder + stat.photo" alt="Placeholder image">
                                 </figure>
                             </div>
                             <div class="media-content">
