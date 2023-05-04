@@ -11,7 +11,6 @@
             <div class="message-body">
                 Before accessing any of the features of this app, please log-in.
                 Go to "Log-in" in the navigation bar and select an user.
-                <strong>You can still use the Calories Calculator without login-in.</strong>
             </div>
             <img src="https://cdn3d.iconscout.com/3d/premium/thumb/waiter-5283956-4404218.png" alt="waiter">
         </article>
