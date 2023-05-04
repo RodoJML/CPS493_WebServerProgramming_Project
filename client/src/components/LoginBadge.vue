@@ -40,12 +40,13 @@ async function googleLogin() {
     });
     client.requestAccessToken();
 }
+let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
 
 </script>
 
 <template>
     <div class="navbar-item" v-if="session.user">
-        <img class="userImage" :src="session.user.photo" alt="eating" width="28" height="28">
+        <img class="userImage" :src="usersFolder + session.user.photo" alt="eating" width="28" height="28">
         <strong>{{ session.user.name }}</strong>
         <a @click="logout" @mouseup="resetCalc">
             <i class="fa-solid fa-right-from-bracket"></i>
