@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Here we add the imports 
-let str = import.meta.env.VITE_API_URL;
-str = str + "static/img/steve.png";
+let str = import.meta.env.VITE_SERVER_URL;
+str = str + "/static/steve.png";
 </script>
 
 <template>
