@@ -39,7 +39,7 @@ const myRecentCalories = computed(() => filteredStats.value.reduce((total, calor
                 <div class="box" v-if="session.user?.user">
                     <div class="wrapper">
                         <strong>Recent Calories</strong>
-                        <div class="title">{{ myRecentCalories }}</div>(*Calories added on my meals during this session)
+                        <div class="title">{{ myRecentCalories }}</div>(*** Calories added on my meals tab)
                     </div>
                 </div>
 
