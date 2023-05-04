@@ -29,19 +29,21 @@ let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
           <progress class="progress is-warning" value="60" max="100">75%</progress>
         </p>
 
-        <div>
+        <div style="margin: 1rem">
           <p>
-            Test users:
-            menesesr1@newpaltz.edu
+            <br /><br /><br />
+            <strong>Test users:</strong>
             <br />
-            plotkinm@newpaltz.edu
+            - menesesr1@newpaltz.edu
             <br />
-            steve@jobs.com
+            - plotkinm@newpaltz.edu
             <br />
-            no@name.edu
+            - steve@jobs.com
+            <br />
+            - no@name.edu
 
             <br /><br />
-            All share same password: 1234abc
+            *All share same password: 1234abc
 
           </p>
         </div>
