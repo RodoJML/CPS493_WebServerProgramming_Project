@@ -130,7 +130,7 @@ async function oAuthLogin(provider, accessToken) {
                     name: me.names[0].displayName,
                     user: me.names[0].displayName,
                     email: me.emailAddresses[0].value,
-                    photo: "https://helpcenter.esn.org/sites/default/files/styles/zoom/public/tutorials/images/new1484895145_logo_small.png?itok=3XuUEDPJ",
+                    photo: "google.png",
                     role: 'admin',
                 }
                 const result = await col.insertOne(user);
