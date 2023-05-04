@@ -122,17 +122,18 @@ async function oAuthLogin(provider, accessToken) {
                     }
                 }).then(res => res.json());
 
-                console.log(me);
-            const user = await col.findOne({ email: me.emailAddresses[0].value });
+            let user = await col.findOne({ email: me.emailAddresses[0].value });
 
-            if (!user) {
-                const user = {
+            console.log({user});
+            if(!user) {
+                user = {
                     name: me.names[0].displayName,
                     user: me.names[0].displayName,
                     email: me.emailAddresses[0].value,
                     photo: "google.png",
                     role: 'admin',
                 }
+                console.log({user});
                 const result = await col.insertOne(user);
                 user._id = result.insertedId;
             }
