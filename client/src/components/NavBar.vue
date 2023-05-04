@@ -56,6 +56,8 @@ function toggleMenu() {
 
                 <div class="navbar-end">
 
+                    <LoginBadge/>
+
                     <RouterLink to="/admin" class="navbar-item">
                         <i class="fa-solid fa-gear"></i>
                     </RouterLink>
@@ -71,8 +73,6 @@ function toggleMenu() {
                             <i class="fa-brands fa-instagram"></i>
                         </button>
                     </a>
-                    
-                    <LoginBadge/>
                     
                 </div>
 
