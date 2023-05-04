@@ -9,6 +9,8 @@ getUsers().then((loadedData) => {
     users.value = loadedData.data;
 });
 
+let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
+
 </script>
 
 <template>
@@ -32,7 +34,7 @@ getUsers().then((loadedData) => {
             </thead>
             <tbody>
                 <tr v-for="user in users">
-                    <td> <img class="userImage" :src="user.photo" alt="userImage" width="124" height="124"> </td>
+                    <td> <img class="userImage" :src="usersFolder + user.photo" alt="userImage" width="124" height="124"> </td>
                     <th> {{ user.name }}</th>
                     <td> {{ user.email }}</td>
                     <td> {{ user.user }}</td>
