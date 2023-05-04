@@ -28,6 +28,23 @@ let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
           Daily calories for women: 2,000 calories
           <progress class="progress is-warning" value="60" max="100">75%</progress>
         </p>
+
+        <div>
+          <p>
+            Test users:
+            menesesr1@newpaltz.edu
+            <br />
+            plotkinm@newpaltz.edu
+            <br />
+            steve@jobs.com
+            <br />
+            no@name.edu
+
+            <br /><br />
+            All share same password: 1234abc
+
+          </p>
+        </div>
       </div>
     </div>
     <div class="column">

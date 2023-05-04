@@ -82,16 +82,6 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                     <strong> Login</strong>
                 </button>
 
-                <p>
-                    <br><br>
-                    Test User
-                    <br>
-                    <strong>email: </strong><br>menesesr1@newpaltz.edu
-                    <strong>passw: </strong><br>1234abc
-                </p>
-
-
-
             </div>
             <!-- <a class="navbar-item" v-for="user in users">
                 <a @click="useLogin(user)">
