@@ -26,6 +26,10 @@ const newStat: Stats = ({} as any) as Stats;
 var date = new Date();
 
 function toggleModal() { isModalActive.value = !isModalActive.value }
+
+let restaurantsFolder = import.meta.env.VITE_SERVER_URL + "/static/restaurants/";
+let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
+
 </script>
 
 <template>

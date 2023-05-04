@@ -17,8 +17,8 @@ const isCalCardActive = ref(false);
 function toggleCalCard() {
     isCalCardActive.value = !isCalCardActive.value;
 }
-let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
 
+let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
 </script>
 
 <template>
