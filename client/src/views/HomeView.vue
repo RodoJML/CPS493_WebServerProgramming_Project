@@ -6,6 +6,7 @@
   <div class="columns">
     <div class="column">
       <div class="wrapper">
+        <img class="logo" src="http://127.0.0.1:3000/static/Donut.png" alt="foodLogo" width="28" height="28">
         <div class="title">Welcome!</div>
         <div class="text">
           On this application you will be able to count your calories, for a healthier life.
