@@ -69,15 +69,15 @@ router
         }).catch(next);
     })
 
-    .post('/loginGoogle', (req, res, next) => {
-        model.generateTokenAsync(req.body, '1d')
-        .then( result => {
-            const data = { data: result, isSuccess: true };
-            res.send(data)
-        }).catch(next);
-    })
+    // .post('/loginGoogle', (req, res, next) => {
+    //     model.generateTokenAsync(req.body, '1d')
+    //     .then( result => {
+    //         const data = { data: result, isSuccess: true };
+    //         res.send(data)
+    //     }).catch(next);
+    // })
 
-    .post('/oAuthLogin', (req, res, next) => {
+    .post('/thirdpartylogin', (req, res, next) => {
         model.oAuthLogin(req.body.provider, req.body.accessToken)
             .then(x => {
                 const data = { data: x, isSuccess: true };

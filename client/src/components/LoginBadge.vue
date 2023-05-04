@@ -3,20 +3,22 @@ import { ref } from 'vue';
 import { useSession, useLogin, useLogout } from '@/model/session';
 import { resetCalc } from '@/model/stats';
 import type { User } from '@/model/users';
-import { getUsers } from '@/model/users';
 import { loadScript, rest } from '@/model/myFetch';
 import { thirdPartyLogin } from '@/model/session';
 
-const loginUser = {
-    email: '',
-    password: ''
-} as User;
+const loginUser = {} as User;
 
 const session = useSession();
 const logout = useLogout();
 const login = useLogin(loginUser);
 
+const providerData = {
+        provider: "",
+        accesToken: null as any
+    }
+
 async function googleLogin() {
+    // Is this just to get the Google access token?
     await loadScript('https://accounts.google.com/gsi/client', 'google-login');
 
     const client = google.accounts.oauth2.initTokenClient({
@@ -24,23 +26,21 @@ async function googleLogin() {
         scope: 'https://www.googleapis.com/auth/calendar.readonly \ https://www.googleapis.com/auth/contacts.readonly \
         https://www.googleapis.com/auth/userinfo.profile \ https://www.googleapis.com/auth/userinfo.email',
 
+        // "me" is repeated here and on the server model, should I remove one?
         callback: async (tokenResponse) => {
-
             const me = await rest(
                 'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses',
                 null, undefined, {
                 "Authorization": "Bearer " + tokenResponse.access_token
             });
+        }
 
-            loginUser.name = me.names[0].displayName;
-            loginUser.email = me.emailAddresses[0].value;
-
-            // console.log("Hereee:  " + me.emailAddresses[0].value + " " + me.names[0].displayName);
-        },
     });
-
     client.requestAccessToken();
-    thirdPartyLogin(loginUser);
+
+    providerData.provider = "google";
+    providerData.accesToken = client.requestAccessToken();
+    thirdPartyLogin(providerData);
 }
 
 </script>
@@ -76,7 +76,7 @@ async function googleLogin() {
                     <strong> Login</strong>
                 </button>
 
-                <button class="button is-warning" @click="googleLogin">
+                <button class="button is-warning is-focused" @click="googleLogin">
                     <i class="gicon">
                         <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
                     </i>
