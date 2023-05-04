@@ -1,5 +1,7 @@
 <script setup lang="ts">
 // Here we add the imports 
+// <img class="logo" :src="str + 'steve.png'" alt="foodLogo" width="28" height="28"> -->
+
 let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
 </script>
 
@@ -7,7 +9,6 @@ let staticFolder = import.meta.env.VITE_SERVER_URL + "/static/";
   <div class="columns">
     <div class="column">
       <div class="wrapper">
-        <!-- <img class="logo" :src="str + 'steve.png'" alt="foodLogo" width="28" height="28"> -->
         <div class="title">Welcome!</div>
         <div class="text">
           On this application you will be able to count your calories, for a healthier life.
