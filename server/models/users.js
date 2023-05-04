@@ -12,56 +12,56 @@ async function collection() {
     return db.collection(COLLECTION_NAME);
 }
 
-async function getAll(){
+async function getAll() {
     const col = await collection();
     const objects = await col.find().toArray();
     const total = await col.countDocuments();
     return { objects, total };
 }
 
-async function getById(id){
+async function getById(id) {
     const col = await collection();
     const object = await col.findOne({ _id: ObjectId(id) });
     return object;
 }
 
-async function add(user){
+async function add(user) {
     const col = await collection();
     const object = await col.insertOne(user);
     user._id = object.insertedId;
     return user;
 }
 
-async function update(user){
+async function update(user) {
     const col = await collection();
     const result = await col.findOneAndUpdate({ _id: ObjectId(user._id) }, { $set: user }, { returnDocument: 'after' });
     return result.value;
 }
 
-async function remove(id){
+async function remove(id) {
     const col = await collection();
     const result = await col.deleteOne({ _id: ObjectId(id) });
     return result.deletedCount;
 }
 
-async function seed(){
+async function seed() {
     const col = await collection();
     const result = await col.insertMany(data.users);
     return result.insertedCount;
 }
 
-async function search(seachTerm, page = 1, pageSize = 30){
+async function search(seachTerm, page = 1, pageSize = 30) {
     const col = await collection();
     const query = {
         $or: [
-            { id: { $regex: searchTerm, $options: 'i'} },
-            { name: { $regex: searchTerm, $options: 'i'}},
-            { email: { $regex: searchTerm, $options: 'i'} },
-            { user: { $regex: searchTerm, $options: 'i'} },
+            { id: { $regex: searchTerm, $options: 'i' } },
+            { name: { $regex: searchTerm, $options: 'i' } },
+            { email: { $regex: searchTerm, $options: 'i' } },
+            { user: { $regex: searchTerm, $options: 'i' } },
         ]
     }
 
-    const objects = await col.find(query).skip((page-1) * pageSize).limit(pageSize).toArray();
+    const objects = await col.find(query).skip((page - 1) * pageSize).limit(pageSize).toArray();
     const total = await col.countDocuments(query);
     return { objects, total };
 }
@@ -96,7 +96,7 @@ function generateTokenAsync(user, expiresIn) { // As professor explain here we a
     });
 }
 
-function verifyTokenAsync(token){
+function verifyTokenAsync(token) {
     return new Promise((resolve, reject) => {
         jwt.verify(token, process.env.JWT_SECRET ?? "", (err, user) => {
             if (err) {
@@ -109,10 +109,42 @@ function verifyTokenAsync(token){
 }
 
 async function oAuthLogin(provider, accessToken) {
-    // validate the access token
-    // if valid, return the user
-    // if not, create a new user
-    // return the user
+
+    const col = await collection();
+
+    switch (provider) {
+        case "google":
+            const me = await fetch(
+                'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses',
+                {
+                    headers: {
+                        "Authorization": "Bearer " + accessToken
+                    }
+                });
+
+            const user = await col.findOne({ email: me.emailAddresses[0].value });
+
+            if (!user) {
+                const user = {
+                    name: me.names[0].displayName,
+                    user: me.names[0].displayName,
+                    email: me.emailAddresses[0].value,
+                    role: 'user',
+                }
+                const result = await col.insertOne(user);
+                user._id = result.insertedId;
+            }
+            const cleanUser = { ...user, password: undefined };
+            const token = await generateTokenAsync(cleanUser, '1d'); // 1d stands for the duration of the token in this case 1 day
+
+            return { user: cleanUser, token };
+            break;
+
+        default:
+            break;
+    }
+    
+    return null;
 }
 
 module.exports = {

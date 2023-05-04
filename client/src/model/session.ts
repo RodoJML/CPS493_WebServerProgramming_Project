@@ -66,14 +66,18 @@ export function useLogout() {
 }
 
 
-export function thirdPartyLogin(user: User) {
+export function thirdPartyLogin(providerData: any) {
     const router = useRouter();
-
+    // session.user = user;
+    
     return async function () {
 
-        const response = await api('/users/loginGoogle', user);
-        session.user = user;
-        session.user.token = response.data.token;
+        const response = await api('/users/thirdpartylogin', providerData);
+        session.user = response.data.user;
+        
+        if(session.user){
+            session.user.token = response.data.token;
+        }
         
         router.push(session.redirectUrl ?? '/');
         session.redirectUrl = null;
