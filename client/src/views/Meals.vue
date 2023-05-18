@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getStats, addStat, removeStat, type Stats } from '@/model/stats';
-import { getRestaurants} from '@/model/restaurants';
+import { getRestaurants } from '@/model/restaurants';
 import type { Restaurant } from '@/model/restaurants';
 import { useSession } from '@/model/session';
 import { useRouter } from 'vue-router';
+import VueAutosuggest from "vue-autosuggest";
 
 const stats = ref<Stats[]>([]);
 const restaurants = ref<Restaurant[]>([]);
@@ -37,7 +38,7 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
         <div class="column"></div>
         <div class="column is-three-quarters">
             <div class="title">I'm eating...</div>
-            
+
 
             <div class="loading" v-if="!stats.length">
                 <i class="fa-solid fa-cookie-bite fa-shake fa-8x"></i>
@@ -54,11 +55,11 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                         <button class="delete" aria-label="close" @click="toggleModal"></button>
                     </header>
                     <form @submit.prevent="addStat(newStat, date, session.user?.photo, session.user?.user)
-                            .then(result => {
-                                getStats().then((result) => {
-                                    stats = result.data;
-                                })
-                            })">
+                        .then(result => {
+                            getStats().then((result) => {
+                                stats = result.data;
+                            })
+                        })">
 
                         <section class="modal-card-body">
                             <div class="field">
@@ -78,7 +79,7 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                                 <div class="control">
                                     <div class="select is-warning">
                                         <select v-model="newStat.restaurant">
-                                            <option v-for="restaurant in restaurants">{{restaurant.name}}</option>
+                                            <option v-for="restaurant in restaurants">{{ restaurant.name }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -93,6 +94,12 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                                     </div>
                                 </div>
                             </div>
+
+                          
+                            <!-- Place it here -->
+
+
+
                         </section>
                         <footer class="modal-card-foot">
                             <button class="button is-success" type="submit" @click="toggleModal">Submit</button>
@@ -103,8 +110,9 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
 
             <div v-for="stat in stats.slice().reverse()">
 
-                <div class="card" v-if="router.currentRoute.value.path == '/friends' ? stat.type == 'Daily' : stat.type == 'Daily' && stat.user == session.user?.user">
-                    
+                <div class="card"
+                    v-if="router.currentRoute.value.path == '/friends' ? stat.type == 'Daily' : stat.type == 'Daily' && stat.user == session.user?.user">
+
 
                     <div class="card-image">
                         <figure class="image is-3by1">
@@ -144,9 +152,9 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
                                 &nbsp;
                                 <button class="delete" @click="() => {
                                     removeStat(stat._id)
-                                    .then(response => {
-                                        stats = stats.filter((s) => s._id !== stat._id);
-                                    })
+                                        .then(response => {
+                                            stats = stats.filter((s) => s._id !== stat._id);
+                                        })
                                 }"></button>
                             </div>
                         </div>
@@ -186,5 +194,4 @@ i {
     align-items: center;
     height: 100vh;
 }
-
 </style>
