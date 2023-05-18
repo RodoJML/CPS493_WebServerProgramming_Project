@@ -1,6 +1,8 @@
 # CPS493_Web_Server_Programming_Project
 ## Below all steps I've been following to create this project.
 
+Hosted here https://cps493-web-server-programming-project-fs.onrender.com/
+
 **STEP 1**
 
         Run "git init" if you are created git locally
