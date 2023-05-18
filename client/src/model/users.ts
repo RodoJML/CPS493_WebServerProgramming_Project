@@ -1,6 +1,7 @@
 import { api } from './session';
 import type { DataEnvelope, DataEnvelopeList } from './myFetch';
 import { useSession } from './session';
+import { ref } from 'vue';
 
  const session = useSession();
 export interface User{
@@ -11,6 +12,15 @@ export interface User{
     password?: string;
     photo?: string;
     token?: string;
+}
+
+export function useUsers() {
+    const users = ref<User[]>([]);
+    
+    getUsers().then((result) => {
+        users.value = result.data;
+    });
+    return users;
 }
 
 export function getUsers(): Promise<DataEnvelopeList<User>> {
