@@ -19,6 +19,7 @@ export interface Stats {
     totalDishes: number;
     date: string;
     restaurant: string;
+    taggedUsers: string;
 }
 
 export interface CalCalc {
