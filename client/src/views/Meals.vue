@@ -36,10 +36,10 @@ let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
 
 const items = ref([] as String[]);
 
-async function search(event: {query: String}) {
-   const data  = await users.search(event.query);
-   items.value = data;
-}
+// async function search(event: {query: String}) {
+//    const data  = await users.search(event.query);
+//    items.value = data;
+// }
 
 </script>
 
@@ -105,12 +105,12 @@ async function search(event: {query: String}) {
                                 </div>
                             </div>
 
-                            <div class="field">
+                            <!-- <div class="field">
                                 <label class="label">Friends</label>
                                 <div class="select is-full-width">
                                     <AutoComplete v-model="newStat.taggedUsers" :suggestions="items" @complete="search"/>
                                 </div>
-                            </div>
+                            </div> -->
                    
 
                         </section>
