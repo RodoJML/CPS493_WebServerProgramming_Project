@@ -68,6 +68,9 @@ Hosted here https://cps493-web-server-programming-project-fs.onrender.com/
         REMINDER
         Package.json       || 
         Package-lock.json  || Keeps track of the version packaging and dependencies version, always keep on GIT.
+        
+        Create the gitignore using this website
+        https://www.toptal.com/developers/gitignore
 
 
 **STEP 7**
