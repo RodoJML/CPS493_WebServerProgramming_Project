@@ -5,8 +5,8 @@ import { getRestaurants } from '@/model/restaurants';
 import type { Restaurant } from '@/model/restaurants';
 import { useSession } from '@/model/session';
 import { useRouter } from 'vue-router';
-import { useUsers, getUsers, type User } from '@/model/users';
-import AutoComplete from 'primevue/autocomplete';
+import { useUsers} from '@/model/users';
+
 
 const stats = ref<Stats[]>([]);
 const restaurants = ref<Restaurant[]>([]);
@@ -31,15 +31,6 @@ function toggleModal() { isModalActive.value = !isModalActive.value }
 
 let restaurantsFolder = import.meta.env.VITE_SERVER_URL + "/static/restaurants/";
 let usersFolder = import.meta.env.VITE_SERVER_URL + "/static/users/";
-
-// Trying to implement autocomplete 
-
-const items = ref([] as String[]);
-
-// async function search(event: {query: String}) {
-//    const data  = await users.search(event.query);
-//    items.value = data;
-// }
 
 </script>
 
@@ -104,14 +95,6 @@ const items = ref([] as String[]);
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="field">
-                                <label class="label">Friends</label>
-                                <div class="select is-full-width">
-                                    <AutoComplete v-model="newStat.taggedUsers" :suggestions="items" @complete="search"/>
-                                </div>
-                            </div> -->
-                   
 
                         </section>
                         <footer class="modal-card-foot">
