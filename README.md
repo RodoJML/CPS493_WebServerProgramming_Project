@@ -12,8 +12,11 @@ Full Stack website developed using:
 
 
 **Web application main objective is to count and keep track of your calories, meals and friends activity.**
+
 Hosted here https://cps493-web-server-programming-project-fs.onrender.com/
 
+
+Below some of the steps followed to prepare the "boilerplate" I used this as reference for future projects:
 
 **STEP 1**
 
