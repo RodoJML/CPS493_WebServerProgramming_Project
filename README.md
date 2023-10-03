@@ -1,5 +1,4 @@
 # CPS493 Web Server Programming Project
-## Below all steps I've been following to create this project
 Project developed at State University of New York on 2023, course CPS493 Web Server Programming.
 
 Full Stack website developed using:
@@ -16,7 +15,7 @@ Full Stack website developed using:
 Hosted here https://cps493-web-server-programming-project-fs.onrender.com/
 
 
-Below some of the steps followed to prepare the "boilerplate" I used this as reference for future projects:
+## Below some of the steps followed to prepare the "boilerplate" I used this as reference for future projects:
 
 **STEP 1**
 
