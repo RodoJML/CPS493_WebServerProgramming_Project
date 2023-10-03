@@ -3,11 +3,11 @@ Project developed at State University of New York on 2023, course CPS493 Web Ser
 
 Full Stack website developed using:
 
-        Vue for the front-end
-        Bulma for styling
-        Node JS and Express JS for the backend
-        MongoDB for the database
-        Authorization implemented using JWToken and Google API.
+        - Vue for the front-end
+        - Bulma for styling
+        - Node JS and Express JS for the backend
+        - MongoDB for the database
+        - Authorization implemented using JWToken and Google API.
 
 
 **Web application main objective is to count and keep track of your calories, meals and friends activity.**
