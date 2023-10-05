@@ -1,5 +1,5 @@
 # CPS493 Web Server Programming Project
-Project developed at State University of New York on 2023, course CPS493 Web Server Programming.
+Project developed at State University of New York in 2023, course CPS493 Web Server Programming.
 
 Full Stack website developed using:
 
