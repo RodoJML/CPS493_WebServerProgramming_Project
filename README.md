@@ -16,7 +16,6 @@ Hosted onrender:
 https://cps493-web-server-programming-project-fs.onrender.com/
 
 
-
 ## Below some of the steps followed to prepare the "boilerplate" I used this as reference for future projects:
 
 **STEP 1**
